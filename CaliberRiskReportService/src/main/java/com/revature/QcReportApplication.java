@@ -8,6 +8,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.datastax.driver.core.LocalDate;
 import com.revature.model.Associate;
 import com.revature.model.Associate_Ratings;
 import com.revature.model.Batch_Ratings;
@@ -69,8 +70,8 @@ public class QcReportApplication implements CommandLineRunner{
 		long mill = System.currentTimeMillis();
 		//Calendar calendar = Calendar.getInstance();
 		//java.util.Date currentDate = calendar.getTime();
-		Date endDate = new Date(mill);
-		Date portfolioSubmission = new Date(mill);
+		LocalDate endDate = LocalDate.fromMillisSinceEpoch(mill);
+		LocalDate portfolioSubmission = LocalDate.fromMillisSinceEpoch(mill);
 		System.out.println(endDate);
 		
 		Batches b1 = new Batches(1,1, endDate, portfolioSubmission);

@@ -7,11 +7,10 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CaliberRiskReportServiceApplicationTests {
+public class QcReportApplicationTests {
 
 	@Test
 	public void contextLoads() {
-		
 	}
 
 }
