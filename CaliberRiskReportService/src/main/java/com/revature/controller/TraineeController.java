@@ -1,7 +1,7 @@
 package com.revature.controller;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +17,7 @@ public class TraineeController {
 	private List<Trainee> trainees;
 
 	@GetMapping(value = "/trainee/{id}")
-	public Trainee getTrainee(@PathVariable int id) {
+	public Trainee getTrainee(@PathVariable UUID id) {
 		Trainee rc = null;
 		for (Trainee c : trainees) {
 			if (id == c.getTraineeId()) {
