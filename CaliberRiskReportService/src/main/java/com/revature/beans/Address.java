@@ -1,5 +1,7 @@
 package com.revature.beans;
 
+import java.util.UUID;
+
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
@@ -11,7 +13,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class Address {
 	
 	@PrimaryKey("Address_Id")
-	private int addressId;
+	private UUID addressId;
 	
 	@Column("address_street")
 	private String addressStreet;
@@ -30,48 +32,62 @@ public class Address {
 	
 	@Column("active")
 	private boolean active;
-	
-	public int getId() {
+
+	public UUID getAddressId() {
 		return addressId;
 	}
-	public void setId(int id) {
-		this.addressId = id;
+
+	public void setAddressId(UUID addressId) {
+		this.addressId = addressId;
 	}
+
 	public String getAddressStreet() {
 		return addressStreet;
 	}
+
 	public void setAddressStreet(String addressStreet) {
 		this.addressStreet = addressStreet;
 	}
+
 	public String getAddressCity() {
 		return addressCity;
 	}
+
 	public void setAddressCity(String addressCity) {
 		this.addressCity = addressCity;
 	}
+
 	public String getAddressState() {
 		return addressState;
 	}
+
 	public void setAddressState(String addressState) {
 		this.addressState = addressState;
 	}
+
 	public String getAddressZipcode() {
 		return addressZipcode;
 	}
+
 	public void setAddressZipcode(String addressZipcode) {
 		this.addressZipcode = addressZipcode;
 	}
+
 	public String getAddressCompany() {
 		return addressCompany;
 	}
+
 	public void setAddressCompany(String addressCompany) {
 		this.addressCompany = addressCompany;
 	}
+
 	public boolean isActive() {
 		return active;
 	}
+
 	public void setActive(boolean active) {
 		this.active = active;
 	}
+	
 	
 }
