@@ -9,16 +9,12 @@ import org.springframework.data.cassandra.core.mapping.Table;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="category")
-@Table
 public class Category {
 	
-	@PrimaryKey("category_id")
 	private UUID categoryId;
 	
-	@Column("skill_category")
 	private String skillCategory;
 	
-	@Column("is_active")
 	private boolean active;
 
 	public UUID getCategoryId() {

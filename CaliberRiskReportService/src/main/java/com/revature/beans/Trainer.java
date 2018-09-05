@@ -10,25 +10,18 @@ import org.springframework.data.cassandra.core.mapping.Table;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="trainer")
-@Table
 public class Trainer {
 	
-	@PrimaryKeyColumn(name="trainer_id", type=PrimaryKeyType.PARTITIONED)
 	private UUID trainerId;
 	
-	@Column("email")
 	private String email;
 	
-	@PrimaryKeyColumn(name="name", type=PrimaryKeyType.CLUSTERED)
 	private String name;
 	
-	@Column("tier")
 	private String tier;
 	
-	@Column("title")
 	private String title;
 	
-	@Column("trainer_password")
 	private String password;
 
 	public UUID getTrainerId() {
