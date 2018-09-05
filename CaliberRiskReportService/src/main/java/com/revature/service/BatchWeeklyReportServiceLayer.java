@@ -34,4 +34,8 @@ public class BatchWeeklyReportServiceLayer {
     public List<BatchWeeklyReport> getAllReports(UUID idnum) {
         return batchWeeklyReportRepository.findByIdnum(idnum);
     }
+    
+    public List<BatchWeeklyReport> getReports() {
+    	return batchWeeklyReportRepository.findAll();
+    }
 }

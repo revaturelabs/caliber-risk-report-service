@@ -5,14 +5,17 @@
  */
 package com.revature.controller;
 
-import com.revature.beans.BatchWeeklyReport;
-import com.revature.service.BatchWeeklyReportServiceLayer;
 import java.util.List;
 import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.revature.beans.BatchWeeklyReport;
+import com.revature.service.BatchWeeklyReportServiceLayer;
 
 /**
  *
@@ -34,8 +37,13 @@ public class BatchWeeklyReportController {
 //    }
     
     @GetMapping("/reports/{id}")
-    public List<BatchWeeklyReport> getAllReports(@PathVariable("id") UUID idnum) {
-        return batchWeeklyReportServiceLayer.getAllReports(idnum);
+    public ResponseEntity<List<BatchWeeklyReport>> getAllReports(@PathVariable("id") UUID idnum) {
+        return ResponseEntity.ok(batchWeeklyReportServiceLayer.getAllReports(idnum));
     }
     
+    @GetMapping("/reports")
+    public ResponseEntity<List<BatchWeeklyReport>> getReports() {
+    	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.getReports();
+    	return ResponseEntity.ok(bwr);
+    }
 }
