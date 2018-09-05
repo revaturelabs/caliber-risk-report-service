@@ -2,8 +2,9 @@ package com.revature.beans;
 
 import java.util.UUID;
 
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.Column;
-import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
@@ -12,13 +13,13 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @Table
 public class Trainer {
 	
-	@PrimaryKey("trainer_id")
+	@PrimaryKeyColumn(name="trainer_id", type=PrimaryKeyType.PARTITIONED)
 	private UUID trainerId;
 	
 	@Column("email")
 	private String email;
 	
-	@Column("name")
+	@PrimaryKeyColumn(name="name", type=PrimaryKeyType.CLUSTERED)
 	private String name;
 	
 	@Column("tier")
@@ -76,6 +77,5 @@ public class Trainer {
 
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	
+	}	
 }

@@ -3,17 +3,19 @@ package com.revature.beans;
 import java.util.Date;
 import java.util.UUID;
 
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="batch")
 @Table
-public class Batch {
+public class RevBatch {
 	
-	@PrimaryKey("batch_id")
+	@PrimaryKeyColumn(name="batch_id", type=PrimaryKeyType.CLUSTERED)
 	private UUID batchId;
 	
 	@Column("borderline_grade_threshold")
@@ -46,7 +48,7 @@ public class Batch {
 	@Column("co_trainer_id")
 	private int coTrainerId;
 	
-	@Column("trainer_id")
+	@PrimaryKeyColumn(name="trainer_id", ordinal=0, type=PrimaryKeyType.PARTITIONED)
 	private int trainerId;
 	
 	@Column("resource_id")
