@@ -3,59 +3,45 @@ package com.revature.beans;
 import java.util.Date;
 import java.util.UUID;
 
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
 import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
+import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="batch")
-@Table
-public class Batch {
+public class RevBatch {
 	
-	@PrimaryKey("batch_id")
 	private UUID batchId;
 	
-	@Column("borderline_grade_threshold")
 	private int blgt;
 	
-	@Column("end_date")
 	private Date endDate;
 	
-	@Column("good_grade_threshold")
 	private int ggt;
 	
-	@Column("location")
 	private String location;
 	
-	@Column("skill_type")
 	private String skilltype;
 	
-	@Column("start_date")
 	private Date startDate;
 	
-	@Column("training_name")
 	private String trainingName;
 	
-	@Column("training_type")
 	private String trainingType;
 	
-	@Column("number_of_weeks")
 	private int numberWeeks;
 	
-	@Column("co_trainer_id")
 	private int coTrainerId;
 	
-	@Column("trainer_id")
 	private int trainerId;
 	
-	@Column("resource_id")
 	private String resourceId;
 	
-	@Column("address_id")
 	private int addressId;
 	
-	@Column("graded_weeks")
 	private int gradedWeeks;
 
 	public UUID getBatchId() {

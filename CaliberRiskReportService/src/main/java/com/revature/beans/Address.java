@@ -9,28 +9,20 @@ import org.springframework.data.cassandra.core.mapping.Table;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="address")
-@Table
 public class Address {
 	
-	@PrimaryKey("Address_Id")
 	private UUID addressId;
 	
-	@Column("address_street")
 	private String addressStreet;
 	
-	@Column("address_city")
 	private String addressCity;
 	
-	@Column("address_state")
 	private String addressState;
 	
-	@Column("address_zipcode")
 	private String addressZipcode;
 	
-	@Column("address_company")
 	private String addressCompany;
 	
-	@Column("active")
 	private boolean active;
 
 	public UUID getAddressId() {

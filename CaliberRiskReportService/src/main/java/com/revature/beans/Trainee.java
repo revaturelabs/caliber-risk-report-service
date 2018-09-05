@@ -11,61 +11,42 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value = "trainee")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@Table
 public class Trainee {
 	
-	@PrimaryKey("trainee_id")
 	private UUID traineeId;
 	
-	@Column("trainee_email")
 	private String traineeEmail;
 	
-	@Column("trainee_name")
 	private String traineeName;
 	
-	@Column("training_status")
 	private String trainingStatus;
 	
-	@Column("batch_id")
 	private int batchId;
 	
-	@Column("phone_number")
 	private String phoneNumber;
 	
-	@Column("profile_url")
 	private String profileUrl;
 	
-	@Column("skype_id")
 	private String skypeId;
 	
-	@Column("resource_id")
 	private String resourceId;
 	
-	@Column("recruiter_name")
 	private String recruiterName;
 	
-	@Column("college")
 	private String college;
 	
-	@Column("degree")
 	private String degree;
 	
-	@Column("major")
 	private String major;
 	
-	@Column("tech_screener_name")
 	private String techScreenerName;
 	
-	@Column("revpro_project_completion")
 	private boolean revproProjectCompletion;
 	
-	@Column("flag_notes")
 	private String flagNotes;
 	
-	@Column("flag_status")
 	private boolean flagStatus;
 	
-	@Column("tech_screen_score")
 	private int techScreenScore;
 
 	public UUID getTraineeId() {

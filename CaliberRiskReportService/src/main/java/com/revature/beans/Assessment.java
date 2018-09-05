@@ -9,28 +9,20 @@ import org.springframework.data.cassandra.core.mapping.Table;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="assessment")
-@Table
 public class Assessment {
 	
-	@PrimaryKey("assessment_id")
 	private UUID assessmentId;
 	
-	@Column("raw_score")
 	private int score;
 	
-	@Column("assessment_title")
 	private String title;
 	
-	@Column("assessment_type")
 	private String type;
 	
-	@Column("week_number")
 	private int week;
 	
-	@Column("batch_id")
 	private int batchId;
 	
-	@Column("assessment_category")
 	private int category;
 
 	public UUID getAssessmentId() {

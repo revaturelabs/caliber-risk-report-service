@@ -9,34 +9,24 @@ import org.springframework.data.cassandra.core.mapping.Table;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="note")
-@Table
 public class Note {
 	
-	@PrimaryKey("note_id")
 	private UUID noteId;
 	
-	@Column("note_content")
 	private String noteContent;
 	
-	@Column("max_visibility")
 	private int visibility;
 	
-	@Column("is_qc_feedback")
 	private boolean qcFeedback;
 	
-	@Column("qc_status")
 	private int qcStatus;
 	
-	@Column("note_type")
 	private String noteType;
 	
-	@Column("week_number")
 	private int weekNumber;
 	
-	@Column("batch_id")
 	private int batchId;
 	
-	@Column("trainee_id")
 	private int traineeId;
 
 	public UUID getNoteId() {
