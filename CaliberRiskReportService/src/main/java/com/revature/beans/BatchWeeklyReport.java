@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class BatchWeeklyReport {
 	
 	@PrimaryKeyColumn(name="batch_id", type=PrimaryKeyType.PARTITIONED)
-	private UUID id;
+	private UUID idnum;
 	
 	@Column("batch_name")
 	private String batchName;
