@@ -2,11 +2,6 @@ package com.revature.beans;
 
 import java.util.UUID;
 
-import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
-import org.springframework.data.cassandra.core.mapping.Column;
-import org.springframework.data.cassandra.core.mapping.PrimaryKeyColumn;
-import org.springframework.data.cassandra.core.mapping.Table;
-
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="trainer")
