@@ -1,0 +1,108 @@
+<center><h1>Week 10</h1></center>
+<br>
+<h4>             
+    <b>Batch ID:</b> 1234<br>
+    <b>Batch Name:</b> ArlingtonJava<br>
+    <b>Trainer:</b> Mehrab Rahman<br>
+</h4> 
+<br>
+<br>   
+<div class="container">
+    <center>
+    <div class="row">
+        <div class="col">
+            <h1>QC Result</h1>
+            <canvas id="QCChart" width="400" height="400"></canvas>
+            <br>
+            <h3>QC Score: 80</h3>
+        </div>
+        <div class="col">
+            <h1>Survey Result</h1>
+            <canvas id="SurveyChart" width="400" height="400"></canvas>
+            <br>
+            <h3>Survey Score: 100</h3>
+        </div>
+    </div>
+    </center>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col">
+            <h4>
+                <b>Associate:</b> <br>
+                <b>Location:</b> Arlington<br>
+                <b>Skill Type:</b> Java<br>
+                <b>End Date:</b> 2018-09-14<br>
+                <b>Weeks:</b>b>10<br>
+                <b>Category:</b> Devops<br>
+                <b>Report Time:</b> <br>               
+            </h4>
+        </div>
+        <div class="col">
+           
+        </div>
+    </div>    
+</div>
+
+<script>
+var ctx = document.getElementById("QCChart").getContext('2d');
+var myChart = new Chart(ctx, {
+   type: 'pie',
+   data: {
+       labels: ["Red", "Green", "Yellow"],
+       datasets: [{
+           label: '# of Votes',
+            //data: [12, 19, 3],
+           data: [12,12 ,5],
+           backgroundColor: [
+               'rgba(255, 99, 132, 0.2)',
+               'rgba(75, 192, 192, 0.2)',
+               'rgba(255, 206, 86, 0.2)',
+               'rgba(255, 159, 64, 0.2)'
+           ],
+           borderColor: [
+               'rgba(255,99,132,1)',
+               'rgba(75, 192, 192, 1)',
+               'rgba(255, 206, 86, 1)',
+               'rgba(255, 159, 64, 1)'
+           ],
+           borderWidth: 1
+       }]
+   },
+   options: {
+       scales: {
+       }
+   }
+});
+</script>
+<script>
+var ctx = document.getElementById("SurveyChart").getContext('2d');
+var myChart = new Chart(ctx, {
+   type: 'pie',
+   data: {
+       labels: ["Red", "Green", "Yellow"],
+       datasets: [{
+           label: '# of Votes',
+           data: [12,12 ,5],
+           backgroundColor: [
+               'rgba(255, 99, 132, 0.2)',
+               'rgba(75, 192, 192, 0.2)',
+               'rgba(255, 206, 86, 0.2)',
+               'rgba(255, 159, 64, 0.2)'
+           ],
+           borderColor: [
+               'rgba(255,99,132,1)',
+               'rgba(75, 192, 192, 1)',
+               'rgba(255, 206, 86, 1)',
+               'rgba(255, 159, 64, 1)'
+           ],
+           borderWidth: 1
+       }]
+   },
+   options: {
+       scales: {
+       }
+   }
+});
+</script>
+{{yield}}

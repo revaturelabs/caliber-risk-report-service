@@ -1,0 +1,1 @@
+/Users/vb/Desktop/charts-demo/ember-project3/tmp/funnel-input_base_path-NmbKJSx3.tmp/initializer-factory.js
