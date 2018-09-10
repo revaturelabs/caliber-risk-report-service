@@ -7,6 +7,7 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('batchweekly', {path: '/batchweekly/:batch_id'});
 });
 
 export default Router;

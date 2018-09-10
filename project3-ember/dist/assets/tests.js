@@ -5,6 +5,16 @@ define('ember-project3/tests/app.lint-test', [], function () {
 
   QUnit.module('ESLint | app');
 
+  QUnit.test('adapters/application.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'adapters/application.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('adapters/batchweekly.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'adapters/batchweekly.js should pass ESLint\n\n');
+  });
+
   QUnit.test('app.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'app.js should pass ESLint\n\n');
@@ -20,6 +30,11 @@ define('ember-project3/tests/app.lint-test', [], function () {
     assert.ok(true, 'components/pie-chart.js should pass ESLint\n\n');
   });
 
+  QUnit.test('models/batchweeklyreport.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/batchweeklyreport.js should pass ESLint\n\n');
+  });
+
   QUnit.test('resolver.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'resolver.js should pass ESLint\n\n');
@@ -28,6 +43,21 @@ define('ember-project3/tests/app.lint-test', [], function () {
   QUnit.test('router.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'router.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('routes/application.js', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'routes/application.js should pass ESLint\n\n37:13 - Unexpected console statement. (no-console)');
+  });
+
+  QUnit.test('routes/batchweekly.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/batchweekly.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('serializers/batchweekly.js', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'serializers/batchweekly.js should pass ESLint\n\n7:9 - Unexpected console statement. (no-console)\n9:9 - Unexpected console statement. (no-console)');
   });
 });
 define('ember-project3/tests/integration/components/nav-bar-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
