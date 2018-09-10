@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
-    primaryKey: 'user',
+    primaryKey: 'idnum',
     
     normalizeResponse(store, primaryModelClass, payload, id, requestType) {
         console.log(payload);
