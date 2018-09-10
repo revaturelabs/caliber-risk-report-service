@@ -1,0 +1,116 @@
+<center><h1>Week 10</h1></center>
+<br>
+<h4>             
+    <b>Batch ID:</b> {{varData.batch_id}}<br>
+    <b>Batch Name:</b> {{varData.batch_name}}<br>
+    <b>Trainer:</b> {{varData.trainer}}<br>
+</h4> 
+<br>
+<br>   
+<div class="container">
+    <center>
+    <div class="row">
+        <div class="col">
+            <h1>QC Result</h1>
+            <canvas id="QCChart" width="400" height="400"></canvas>
+            <br>
+            <h3>QC Score: {{varData.qc_score}}</h3>
+        </div>
+        <div class="col">
+            <h1>Survey Result</h1>
+            <canvas id="SurveyChart" width="400" height="400"></canvas>
+            <br>
+            <h3>Survey Score: {{varData.survey_score}}</h3>
+        </div>
+    </div>
+    </center>
+    <br>
+    <br>
+    <div class="row">
+        <div class="col">
+            <h4>
+                <b>Associate:</b> {{!--List of numbers?--}}<br>
+                <b>Location:</b> {{varData.location}}<br>
+                <b>Skill Type:</b> {{varData.skilltype}}<br>
+                <b>End Date:</b> {{varData.end_date}}<br>
+                <b>Weeks:</b> {{varData.weeks}}<br>
+                <b>Category:</b> {{varData.category_name}}<br>
+                <b>Report Time:</b> {{varData.report_time}}<br>               
+            </h4>
+        </div>
+        <div class="col">
+           
+        </div>
+    </div>    
+</div>
+
+<input type="hidden" id="qcR" value={{varData.qc_count_red}} />
+<input type="hidden" id="qcG" value={{varData.qc_count_green}} />
+<input type="hidden" id="qcY" value={{varData.qc_count_yellow}} />
+
+<input type="hidden" id="svR" value={{varData.survey_count_red}} />
+<input type="hidden" id="svG" value={{varData.survey_count_green}} />
+<input type="hidden" id="svY" value={{varData.survey_count_yellow}} />
+
+<script>
+var ctx = document.getElementById("QCChart").getContext('2d');
+var myChart = new Chart(ctx, {
+   type: 'pie',
+   data: {
+       labels: ["Red", "Green", "Yellow"],
+       datasets: [{
+           label: '# of Votes',
+            //data: [12, 19, 3],
+           data: [document.getElementById("qcR").value, document.getElementById("qcG").value, document.getElementById("qcY").value],
+           backgroundColor: [
+               'rgba(255, 99, 132, 0.2)',
+               'rgba(75, 192, 192, 0.2)',
+               'rgba(255, 206, 86, 0.2)',
+               'rgba(255, 159, 64, 0.2)'
+           ],
+           borderColor: [
+               'rgba(255,99,132,1)',
+               'rgba(75, 192, 192, 1)',
+               'rgba(255, 206, 86, 1)',
+               'rgba(255, 159, 64, 1)'
+           ],
+           borderWidth: 1
+       }]
+   },
+   options: {
+       scales: {
+       }
+   }
+});
+</script>
+<script>
+var ctx = document.getElementById("SurveyChart").getContext('2d');
+var myChart = new Chart(ctx, {
+   type: 'pie',
+   data: {
+       labels: ["Red", "Green", "Yellow"],
+       datasets: [{
+           label: '# of Votes',
+           data: [document.getElementById("svR").value, document.getElementById("svG").value, document.getElementById("svY").value],
+           backgroundColor: [
+               'rgba(255, 99, 132, 0.2)',
+               'rgba(75, 192, 192, 0.2)',
+               'rgba(255, 206, 86, 0.2)',
+               'rgba(255, 159, 64, 0.2)'
+           ],
+           borderColor: [
+               'rgba(255,99,132,1)',
+               'rgba(75, 192, 192, 1)',
+               'rgba(255, 206, 86, 1)',
+               'rgba(255, 159, 64, 1)'
+           ],
+           borderWidth: 1
+       }]
+   },
+   options: {
+       scales: {
+       }
+   }
+});
+</script>
+{{yield}}
