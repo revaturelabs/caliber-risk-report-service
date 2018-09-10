@@ -9,10 +9,10 @@
         value: true
     });
     exports.default = _emberData.default.RESTAdapter.extend({
-        host: 'http://localhost:8080/project3'
+        host: 'http://18.220.50.95:9090/api/staging-caliber-risk-report'
     });
 });
-;define('ember-project3/adapters/batchweekly', ['exports', 'ember-project3/adapters/application'], function (exports, _application) {
+;define('ember-project3/adapters/batchweeklyreport', ['exports', 'ember-project3/adapters/application'], function (exports, _application) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
@@ -246,7 +246,7 @@
         value: true
     });
     exports.default = _emberData.default.Model.extend({
-        batch_id: _emberData.default.attr('number'),
+        batch_id: _emberData.default.attr('string'),
         batch_name: _emberData.default.attr('string'),
         qc_count_green: _emberData.default.attr('number'),
         qc_count_yellow: _emberData.default.attr('number'),
@@ -289,7 +289,7 @@
   });
 
   Router.map(function () {
-    this.route('batchweekly', { path: '/batchweekly/:batch_id' });
+    this.route('batchweekly', { path: '/reports/:batch_id' });
   });
 
   exports.default = Router;
@@ -347,22 +347,22 @@
     });
     exports.default = Ember.Route.extend({
         model(params) {
-            return this.get('store').peekAll('batchweeklyreport', params.batch_id /**.query('batchweeklyreport', {
-                                                                                  filter: {
-                                                                                  batch_id: params.batch_id
-                                                                                  }
-                                                                                  }*/);
+            return this.get('store').findAll('batchweeklyreport', {
+                filter: {
+                    batch_id: params.batch_id
+                }
+            });
         }
     });
 });
-;define('ember-project3/serializers/batchweekly', ['exports', 'ember-data'], function (exports, _emberData) {
+;define('ember-project3/serializers/batchweeklyreport', ['exports', 'ember-data'], function (exports, _emberData) {
     'use strict';
 
     Object.defineProperty(exports, "__esModule", {
         value: true
     });
     exports.default = _emberData.default.RESTSerializer.extend({
-        primaryKey: 'user',
+        primaryKey: 'idnum',
 
         normalizeResponse(store, primaryModelClass, payload, id, requestType) {
             console.log(payload);
@@ -391,7 +391,7 @@
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "pxn9NmiU", "block": "{\"symbols\":[],\"statements\":[[1,[21,\"nav-bar\"],false],[0,\"\\n\\n\"],[7,\"button\"],[3,\"action\",[[22,0,[]],\"makeTest\",1234]],[9],[0,\"make test report\"],[10],[0,\"\\n\\n\"],[4,\"link-to\",[\"batchweekly\",1234],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\"View Weekly Batch Report\"]],\"parameters\":[]},null],[0,\"\\n\\n\"],[1,[21,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/application.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "/C4ZKtv2", "block": "{\"symbols\":[],\"statements\":[[1,[21,\"nav-bar\"],false],[0,\"\\n\\n\"],[7,\"button\"],[3,\"action\",[[22,0,[]],\"makeTest\",1234]],[9],[0,\"make test report\"],[10],[0,\"\\n\\n\"],[4,\"link-to\",[\"batchweekly\",\"cbc08968-97ba-4cb3-9f91-ab707d8ef90a\"],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\"View Weekly Batch Report\"]],\"parameters\":[]},null],[0,\"\\n\\n\"],[1,[21,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/application.hbs" } });
 });
 ;define("ember-project3/templates/batchweekly", ["exports"], function (exports) {
   "use strict";
@@ -440,7 +440,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project3/app")["default"].create({"name":"ember-project3","version":"0.0.0+39325e6d"});
+            require("ember-project3/app")["default"].create({"name":"ember-project3","version":"0.0.0+a04cddad"});
           }
         
 //# sourceMappingURL=ember-project3.map

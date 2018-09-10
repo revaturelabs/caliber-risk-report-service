@@ -1,7 +1,7 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    batch_id: DS.attr('number'),
+    batch_id: DS.attr('string'),
     batch_name: DS.attr('string'),
     qc_count_green: DS.attr('number'),
     qc_count_yellow: DS.attr('number'),
