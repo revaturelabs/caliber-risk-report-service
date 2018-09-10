@@ -17,10 +17,10 @@ public class AssociateWeeklyReport {
 	private String name;
 	
 	@Column("Associate_id")
-	private UUID assId;
+	private Integer assId;
 	
 	@Column("Batch_id")
-	private UUID idnum;
+	private Integer idnum;
 	
 	@Column("Training_status")
 	private String status;
@@ -65,19 +65,19 @@ public class AssociateWeeklyReport {
 		this.name = name;
 	}
 
-	public UUID getAssId() {
+	public Integer getAssId() {
 		return assId;
 	}
 
-	public void setAssId(UUID assId) {
+	public void setAssId(Integer assId) {
 		this.assId = assId;
 	}
 
-	public UUID getIdnum() {
+	public Integer getIdnum() {
 		return idnum;
 	}
 
-	public void setIdnum(UUID idnum) {
+	public void setIdnum(Integer idnum) {
 		this.idnum = idnum;
 	}
 

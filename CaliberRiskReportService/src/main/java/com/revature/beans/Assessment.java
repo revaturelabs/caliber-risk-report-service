@@ -2,12 +2,19 @@ package com.revature.beans;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="assessment")
+@Entity
+@Table
 public class Assessment {
 	
-	private UUID assessmentId;
+	@Id
+	private Integer assessmentId;
 	
 	private int score;
 	
@@ -21,11 +28,11 @@ public class Assessment {
 	
 	private int category;
 
-	public UUID getAssessmentId() {
+	public Integer getAssessmentId() {
 		return assessmentId;
 	}
 
-	public void setAssessmentId(UUID assessmentId) {
+	public void setAssessmentId(Integer assessmentId) {
 		this.assessmentId = assessmentId;
 	}
 

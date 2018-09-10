@@ -17,7 +17,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class BatchWeeklyReport {
 
 	@PrimaryKeyColumn(name = "batch_id", type = PrimaryKeyType.PARTITIONED)
-	private UUID idnum;
+	private Integer idnum;
 
 	@Column("batch_name")
 	private String batchName;
@@ -73,11 +73,11 @@ public class BatchWeeklyReport {
 	@PrimaryKeyColumn(name = "report_time", type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
 	private Date reporttime;
 
-	public UUID getIdnum() {
+	public Integer getIdnum() {
 		return idnum;
 	}
 
-	public void setIdnum(UUID idnum) {
+	public void setIdnum(Integer idnum) {
 		this.idnum = idnum;
 	}
 

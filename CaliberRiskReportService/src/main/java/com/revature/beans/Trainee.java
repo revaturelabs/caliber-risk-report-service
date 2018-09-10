@@ -1,15 +1,20 @@
 package com.revature.beans;
 
-import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value = "trainee")
 @JsonIgnoreProperties(ignoreUnknown=true)
+@Entity
+@Table
 public class Trainee {
 	
-	private UUID traineeId;
+	@Id
+	private Integer traineeId;
 	
 	private String traineeEmail;
 	
@@ -45,11 +50,11 @@ public class Trainee {
 	
 	private int techScreenScore;
 
-	public UUID getTraineeId() {
+	public Integer getTraineeId() {
 		return traineeId;
 	}
 
-	public void setTraineeId(UUID traineeId) {
+	public void setTraineeId(Integer traineeId) {
 		this.traineeId = traineeId;
 	}
 

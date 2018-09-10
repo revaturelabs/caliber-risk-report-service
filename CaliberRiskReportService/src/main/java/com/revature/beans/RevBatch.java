@@ -3,12 +3,19 @@ package com.revature.beans;
 import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="batch")
+@Entity
+@Table
 public class RevBatch {
 	
-	private UUID batchId;
+	@Id
+	private Integer batchId;
 	
 	private int blgt;
 	
@@ -38,11 +45,11 @@ public class RevBatch {
 	
 	private int gradedWeeks;
 
-	public UUID getBatchId() {
+	public Integer getBatchId() {
 		return batchId;
 	}
 
-	public void setBatchId(UUID batchId) {
+	public void setBatchId(Integer batchId) {
 		this.batchId = batchId;
 	}
 

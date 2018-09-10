@@ -1,13 +1,18 @@
 package com.revature.beans;
 
-import java.util.UUID;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="note")
+@Entity
+@Table
 public class Note {
 	
-	private UUID noteId;
+	@Id
+	private Integer noteId;
 	
 	private String noteContent;
 	
@@ -25,11 +30,11 @@ public class Note {
 	
 	private int traineeId;
 
-	public UUID getNoteId() {
+	public Integer getNoteId() {
 		return noteId;
 	}
 
-	public void setNoteId(UUID noteId) {
+	public void setNoteId(Integer noteId) {
 		this.noteId = noteId;
 	}
 

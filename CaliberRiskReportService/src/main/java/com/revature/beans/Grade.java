@@ -1,14 +1,20 @@
 package com.revature.beans;
 
 import java.util.Date;
-import java.util.UUID;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="grade")
+@Entity
+@Table
 public class Grade {
 	
-	private UUID gradeId;
+	@Id
+	private Integer gradeId;
 	
 	private Date date;
 	
@@ -18,11 +24,11 @@ public class Grade {
 	
 	private int traineeId;
 
-	public UUID getGradeId() {
+	public Integer getGradeId() {
 		return gradeId;
 	}
 
-	public void setGradeId(UUID gradeId) {
+	public void setGradeId(Integer gradeId) {
 		this.gradeId = gradeId;
 	}
 
