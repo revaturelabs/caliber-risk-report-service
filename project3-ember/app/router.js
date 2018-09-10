@@ -7,7 +7,7 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('batchweekly', {path: '/reports/:batch_id'});
+  this.route('batchweekly', {path: '/reports/:idnum'});
 });
 
 export default Router;
