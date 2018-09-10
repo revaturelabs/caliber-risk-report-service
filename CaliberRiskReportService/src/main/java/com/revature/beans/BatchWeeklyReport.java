@@ -240,5 +240,4 @@ public class BatchWeeklyReport {
 				+ enddate + ", weeks=" + weeks + ", currweek=" + currweek + ", categoryname=" + categoryname
 				+ ", reporttime=" + reporttime + "]";
 	}
-
 }
