@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class BatchWeeklyReport {
 
 	@PrimaryKeyColumn(name = "batch_id", type = PrimaryKeyType.PARTITIONED)
-	private UUID id;
+	private UUID idnum;
 
 	@Column("batch_name")
 	private String batchName;
@@ -56,7 +56,7 @@ public class BatchWeeklyReport {
 	private String trainer;
 
 	@Column("associate_ids")
-	private List<Integer> associates;
+	private List<UUID> associates;
 
 	@Column("location")
 	private String location;
@@ -78,4 +78,167 @@ public class BatchWeeklyReport {
 
 	@PrimaryKeyColumn(name = "report_time", type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
 	private Date reporttime;
+
+	public UUID getIdnum() {
+		return idnum;
+	}
+
+	public void setIdnum(UUID idnum) {
+		this.idnum = idnum;
+	}
+
+	public String getBatchName() {
+		return batchName;
+	}
+
+	public void setBatchName(String batchName) {
+		this.batchName = batchName;
+	}
+
+	public int getQcgreens() {
+		return qcgreens;
+	}
+
+	public void setQcgreens(int qcgreens) {
+		this.qcgreens = qcgreens;
+	}
+
+	public int getQcyellow() {
+		return qcyellow;
+	}
+
+	public void setQcyellow(int qcyellow) {
+		this.qcyellow = qcyellow;
+	}
+
+	public int getQcred() {
+		return qcred;
+	}
+
+	public void setQcred(int qcred) {
+		this.qcred = qcred;
+	}
+
+	public int getQcscore() {
+		return qcscore;
+	}
+
+	public void setQcscore(int qcscore) {
+		this.qcscore = qcscore;
+	}
+
+	public int getSurvgreen() {
+		return survgreen;
+	}
+
+	public void setSurvgreen(int survgreen) {
+		this.survgreen = survgreen;
+	}
+
+	public int getSurvyellow() {
+		return survyellow;
+	}
+
+	public void setSurvyellow(int survyellow) {
+		this.survyellow = survyellow;
+	}
+
+	public int getSurvred() {
+		return survred;
+	}
+
+	public void setSurvred(int survred) {
+		this.survred = survred;
+	}
+
+	public int getSurvscore() {
+		return survscore;
+	}
+
+	public void setSurvscore(int survscore) {
+		this.survscore = survscore;
+	}
+
+	public String getTrainer() {
+		return trainer;
+	}
+
+	public void setTrainer(String trainer) {
+		this.trainer = trainer;
+	}
+
+	public List<UUID> getAssociates() {
+		return associates;
+	}
+
+	public void setAssociates(List<UUID> associates) {
+		this.associates = associates;
+	}
+
+	public String getLocation() {
+		return location;
+	}
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+	public String getSkilltype() {
+		return skilltype;
+	}
+
+	public void setSkilltype(String skilltype) {
+		this.skilltype = skilltype;
+	}
+
+	public Date getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(Date enddate) {
+		this.enddate = enddate;
+	}
+
+	public int getWeeks() {
+		return weeks;
+	}
+
+	public void setWeeks(int weeks) {
+		this.weeks = weeks;
+	}
+
+	public int getCurrweek() {
+		return currweek;
+	}
+
+	public void setCurrweek(int currweek) {
+		this.currweek = currweek;
+	}
+
+	public String getCategoryname() {
+		return categoryname;
+	}
+
+	public void setCategoryname(String categoryname) {
+		this.categoryname = categoryname;
+	}
+
+	public Date getReporttime() {
+		return reporttime;
+	}
+
+	public void setReporttime(Date reporttime) {
+		this.reporttime = reporttime;
+	}
+
+	@Override
+	public String toString() {
+		return "BatchWeeklyReport [id=" + idnum + ", batchName=" + batchName + ", qcgreens=" + qcgreens + ", qcyellow="
+				+ qcyellow + ", qcred=" + qcred + ", qcscore=" + qcscore + ", survgreen=" + survgreen + ", survyellow="
+				+ survyellow + ", survred=" + survred + ", survscore=" + survscore + ", trainer=" + trainer
+				+ ", associates=" + associates + ", location=" + location + ", skilltype=" + skilltype + ", enddate="
+				+ enddate + ", weeks=" + weeks + ", currweek=" + currweek + ", categoryname=" + categoryname
+				+ ", reporttime=" + reporttime + "]";
+	}
+
 }
