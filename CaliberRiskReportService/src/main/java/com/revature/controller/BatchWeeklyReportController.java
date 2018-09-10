@@ -10,6 +10,7 @@ import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +22,8 @@ import com.revature.service.BatchWeeklyReportServiceLayer;
  *
  * @author James
  */
+
+@CrossOrigin
 @RestController
 public class BatchWeeklyReportController {
     
@@ -30,11 +33,6 @@ public class BatchWeeklyReportController {
     public BatchWeeklyReportController(BatchWeeklyReportServiceLayer batchWeeklyReportServiceLayer) {
         this.batchWeeklyReportServiceLayer = batchWeeklyReportServiceLayer;
     }
-    
-//    @GetMapping("/reports/{id}")
-//    public BatchWeeklyReport findReportById(@PathVariable("id") UUID idnum, ) {
-//        return batchWeeklyReportServiceLayer.getReportByReportIdAndDate(idnum, reporttime);
-//    }
     
     @GetMapping("/reports/{id}")
     public ResponseEntity<List<BatchWeeklyReport>> getAllReports(@PathVariable("id") UUID idnum) {

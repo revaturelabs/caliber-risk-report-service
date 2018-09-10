@@ -14,6 +14,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @Configuration
 public class MvcConfig extends WebMvcConfigurationSupport {
 	
+	@Override
 	protected void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         converters.add(mappingJackson2HttpMessageConverter());
         addDefaultHttpMessageConverters(converters);
@@ -23,8 +24,6 @@ public class MvcConfig extends WebMvcConfigurationSupport {
 	public MappingJackson2HttpMessageConverter mappingJackson2HttpMessageConverter() {
 	    ObjectMapper mapper = new ObjectMapper();
 	    mapper.configure(DeserializationFeature.UNWRAP_ROOT_VALUE, true);
-	    MappingJackson2HttpMessageConverter converter =
-	            new MappingJackson2HttpMessageConverter(mapper);
-	    return converter;
+	    return new MappingJackson2HttpMessageConverter(mapper);
 	}
 }

@@ -50,7 +50,7 @@ public class BatchWeeklyReport {
 	private String trainer;
 
 	@Column("associate_ids")
-	private List<Integer> associates;
+	private List<UUID> associates;
 
 	@Column("location")
 	private String location;
@@ -161,11 +161,11 @@ public class BatchWeeklyReport {
 		this.trainer = trainer;
 	}
 
-	public List<Integer> getAssociates() {
+	public List<UUID> getAssociates() {
 		return associates;
 	}
 
-	public void setAssociates(List<Integer> associates) {
+	public void setAssociates(List<UUID> associates) {
 		this.associates = associates;
 	}
 
