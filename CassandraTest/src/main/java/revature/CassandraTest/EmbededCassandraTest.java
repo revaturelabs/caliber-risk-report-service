@@ -22,7 +22,7 @@ import org.junit.Test;
 public class EmbededCassandraTest {
     @Before
     public void before() throws TTransportException, IOException, InterruptedException, ConfigurationException {
-        EmbeddedCassandraServerHelper.startEmbeddedCassandra("another-cassandra.yaml", 20000);
+        EmbeddedCassandraServerHelper.startEmbeddedCassandra("another-cassandra.yaml", 40000);
     }
     
     @Test
