@@ -2,7 +2,6 @@ package com.revature.beans;
 
 import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.data.cassandra.core.cql.Ordering;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
@@ -50,7 +49,7 @@ public class BatchWeeklyReport {
 	private String trainer;
 
 	@Column("associate_ids")
-	private List<UUID> associates;
+	private List<Integer> associates;
 
 	@Column("location")
 	private String location;
@@ -161,11 +160,11 @@ public class BatchWeeklyReport {
 		this.trainer = trainer;
 	}
 
-	public List<UUID> getAssociates() {
+	public List<Integer> getAssociates() {
 		return associates;
 	}
 
-	public void setAssociates(List<UUID> associates) {
+	public void setAssociates(List<Integer> associates) {
 		this.associates = associates;
 	}
 
