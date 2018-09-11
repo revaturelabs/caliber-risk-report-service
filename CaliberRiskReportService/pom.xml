@@ -44,6 +44,15 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.cassandraunit/cassandra-unit -->
+		<dependency>
+		    <groupId>org.cassandraunit</groupId>
+		    <artifactId>cassandra-unit</artifactId>
+		    <version>3.5.0.1</version>
+		    <scope>test</scope>
+		</dependency>
+		
 	</dependencies>
 
 	<dependencyManagement>
