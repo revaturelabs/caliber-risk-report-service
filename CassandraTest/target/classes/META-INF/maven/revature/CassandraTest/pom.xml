@@ -25,12 +25,12 @@
 <dependency>
     <groupId>com.datastax.cassandra</groupId>
     <artifactId>cassandra-driver-core</artifactId>
-    <version>3.2.0</version>
+    <version>3.6.0</version>
 </dependency>
 <dependency>
     <groupId>org.cassandraunit</groupId>
     <artifactId>cassandra-unit-spring</artifactId>
-    <version>3.1.1.0</version>
+    <version>3.5.0.1</version>
     <scope>test</scope>
     <exclusions>
         <exclusion>
@@ -58,25 +58,30 @@
     <scope>test</scope>
 </dependency>
 
-<!-- https://mvnrepository.com/artifact/me.prettyprint/hector-core -->
+<!-- https://mvnrepository.com/artifact/org.hectorclient/hector-core -->
 <dependency>
-    <groupId>me.prettyprint</groupId>
+    <groupId>org.hectorclient</groupId>
     <artifactId>hector-core</artifactId>
-    <version>0.7.0-28</version>
+    <version>2.0-0</version>
 </dependency>
 
+
+<!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-cassandra -->
 <dependency>
     <groupId>org.springframework.data</groupId>
     <artifactId>spring-data-cassandra</artifactId>
     <version>1.0.0.RELEASE</version>
 </dependency>
+
 	
-	<dependency>
+<!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+<dependency>
     <groupId>org.projectlombok</groupId>
     <artifactId>lombok</artifactId>
-    <version>1.16.0</version>
+    <version>1.18.2</version>
     <scope>provided</scope>
 </dependency>
+
 
 <dependency>
     <groupId>org.slf4j</groupId>
@@ -84,6 +89,14 @@
     <version>1.7.25</version>
     <scope>test</scope>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/org.springframework/spring-context -->
+<dependency>
+    <groupId>org.springframework</groupId>
+    <artifactId>spring-context</artifactId>
+    <version>5.0.9.RELEASE</version>
+</dependency>
+
 
   </dependencies>
 </project>
