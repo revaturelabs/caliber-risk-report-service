@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,10 +13,13 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class Category {
 	
 	@Id
+	@Column(name="category_id")
 	private Integer categoryId;
 	
+	@Column(name="skill_category")
 	private String skillCategory;
 	
+	@Column(name="is_active")
 	private boolean active;
 
 	public Integer getCategoryId() {

@@ -1,8 +1,8 @@
 package com.revature.beans;
 
 import java.util.Date;
-import java.util.UUID;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -11,38 +11,52 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="batch")
 @Entity
-@Table
+@Table(name="Caliber_Batch")
 public class RevBatch {
 	
 	@Id
 	private Integer batchId;
 	
+	@Column(name="borderline_grade_threshold")
 	private int blgt;
 	
+	@Column(name="end_date")
 	private Date endDate;
 	
+	@Column(name="good_grade_threshold")
 	private int ggt;
 	
+	@Column(name="location")
 	private String location;
 	
+	@Column(name="skill_type")
 	private String skilltype;
 	
+	@Column(name="start_date")
 	private Date startDate;
 	
+	@Column(name="training_name")
 	private String trainingName;
 	
+	@Column(name="training_type")
 	private String trainingType;
 	
+	@Column(name="number_of_weeks")
 	private int numberWeeks;
 	
-	private int coTrainerId;
+	@Column(name="co_trainer_id", nullable=true)
+	private Integer coTrainerId;
 	
-	private int trainerId;
+	@Column(name="trainer_id")
+	private Integer trainerId;
 	
+	@Column(name="resource_id", nullable=true)
 	private String resourceId;
 	
-	private int addressId;
+	@Column(name="address_id", nullable=true)
+	private Integer addressId;
 	
+	@Column(name="graded_weeks", nullable=true)
 	private int gradedWeeks;
 
 	public Integer getBatchId() {
@@ -164,6 +178,16 @@ public class RevBatch {
 	public void setGradedWeeks(int gradedWeeks) {
 		this.gradedWeeks = gradedWeeks;
 	}
+
+	@Override
+	public String toString() {
+		return "RevBatch [batchId=" + batchId + ", blgt=" + blgt + ", endDate=" + endDate + ", ggt=" + ggt
+				+ ", location=" + location + ", skilltype=" + skilltype + ", startDate=" + startDate + ", trainingName="
+				+ trainingName + ", trainingType=" + trainingType + ", numberWeeks=" + numberWeeks + ", coTrainerId="
+				+ coTrainerId + ", trainerId=" + trainerId + ", resourceId=" + resourceId + ", addressId=" + addressId
+				+ ", gradedWeeks=" + gradedWeeks + "]";
+	}
 		
+	
 }
 

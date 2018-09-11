@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -12,22 +13,31 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class Note {
 	
 	@Id
+	@Column(name="Note_id")
 	private Integer noteId;
 	
+	@Column(name="Note_content")
 	private String noteContent;
 	
+	@Column(name="max_visibility")
 	private int visibility;
 	
+	@Column(name="is_qc_feedback")
 	private boolean qcFeedback;
 	
+	@Column(name="qc_status")
 	private int qcStatus;
 	
+	@Column(name="note_type")
 	private String noteType;
 	
+	@Column(name="week_number")
 	private int weekNumber;
 	
+	@Column(name="batch_id")
 	private int batchId;
 	
+	@Column(name="trainee_id")
 	private int traineeId;
 
 	public Integer getNoteId() {

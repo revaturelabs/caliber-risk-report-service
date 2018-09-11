@@ -1,5 +1,6 @@
 package com.revature.beans;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -14,40 +15,58 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 public class Trainee {
 	
 	@Id
+	@Column(name="trainee_id")
 	private Integer traineeId;
 	
+	@Column(name="trainee_email")
 	private String traineeEmail;
 	
+	@Column(name="trainee_name")
 	private String traineeName;
 	
+	@Column(name="training_status")
 	private String trainingStatus;
 	
+	@Column(name="batch_id")
 	private int batchId;
 	
+	@Column(name="phone_number")
 	private String phoneNumber;
 	
+	@Column(name="profile_url")
 	private String profileUrl;
 	
+	@Column(name="skype_id")
 	private String skypeId;
 	
+	@Column(name="Resource_id")
 	private String resourceId;
 	
+	@Column(name="recruiter_name")
 	private String recruiterName;
 	
+	@Column(name="college")
 	private String college;
 	
+	@Column(name="degree")
 	private String degree;
 	
+	@Column(name="major")
 	private String major;
 	
+	@Column(name="tech_screener_name")
 	private String techScreenerName;
 	
+	@Column(name="revpro_project_completion")
 	private boolean revproProjectCompletion;
 	
+	@Column(name="flag_notes")
 	private String flagNotes;
 	
+	@Column(name="flag_status")
 	private boolean flagStatus;
 	
+	@Column(name="tech_screen_score")
 	private int techScreenScore;
 
 	public Integer getTraineeId() {
