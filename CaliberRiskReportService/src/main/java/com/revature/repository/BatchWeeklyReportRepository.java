@@ -8,10 +8,10 @@ import org.springframework.data.cassandra.repository.CassandraRepository;
 
 import com.revature.beans.BatchWeeklyReport;
 
-public interface BatchWeeklyReportRepository extends CassandraRepository<BatchWeeklyReport, UUID> {
+public interface BatchWeeklyReportRepository extends CassandraRepository<BatchWeeklyReport, Integer> {
 	
-	BatchWeeklyReport findByIdnumAndReporttime(UUID idnum, Date reporttime);
+	BatchWeeklyReport findByIdnumAndReporttime(Integer idnum, Date reporttime);
 	
-	List<BatchWeeklyReport> findByIdnum(UUID idnum);
+	List<BatchWeeklyReport> findByIdnum(Integer idnum);
 
 }

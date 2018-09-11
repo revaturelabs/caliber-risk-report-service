@@ -1,31 +1,44 @@
 package com.revature.beans;
 
-import java.util.UUID;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="assessment")
+@Entity
+@Table
 public class Assessment {
 	
-	private UUID assessmentId;
+	@Id
+	@Column(name="assessment_id")
+	private Integer assessmentId;
 	
+	@Column(name="Raw_Score")
 	private int score;
 	
+	@Column(name="Assessment_title")
 	private String title;
 	
+	@Column(name="Assessment_type")
 	private String type;
 	
+	@Column(name="Week_number")
 	private int week;
 	
+	@Column(name="Batch_id")
 	private int batchId;
 	
+	@Column(name="Assessment_category")
 	private int category;
 
-	public UUID getAssessmentId() {
+	public Integer getAssessmentId() {
 		return assessmentId;
 	}
 
-	public void setAssessmentId(UUID assessmentId) {
+	public void setAssessmentId(Integer assessmentId) {
 		this.assessmentId = assessmentId;
 	}
 
