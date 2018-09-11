@@ -3,6 +3,7 @@ package revature.CassandraTest;
 import com.datastax.driver.core.Cluster;
 import com.datastax.driver.core.Session;
 import com.ecyrd.speed4j.log.Log;
+import com.kenai.jnr.x86asm.Logger;
 
 import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.XSlf4j;
@@ -29,11 +30,11 @@ public abstract class AbstractRepositoryTest {
             String cassandraPort = prop.getProperty("cassandra.port");
  
             EmbeddedCassandraServerHelper.startEmbeddedCassandra("another-cassandra.yaml", 20000);
-            log.info("Connect to embedded db");
+            //log.info("Connect to embedded db");
             Cluster cluster = Cluster.builder().addContactPoints(cassandraHosts).withPort(Integer.parseInt(cassandraPort)).build();
             Session session = cluster.connect();
  
-            log.info("Initialize keyspace");
+           // log.info("Initialize keyspace");
             session.execute("create keyspace  \"mykeyspace\" WITH replication = {'class':'SimpleStrategy', 'replication_factor' : 3};");
             session.execute("use \"mykeyspace\";");
         } catch (TTransportException e) {
