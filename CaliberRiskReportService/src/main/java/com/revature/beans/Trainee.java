@@ -11,7 +11,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @JsonRootName(value = "trainee")
 @JsonIgnoreProperties(ignoreUnknown=true)
 @Entity
-@Table
+@Table(name="Caliber_Trainee")
 public class Trainee {
 	
 	@Id
@@ -28,7 +28,7 @@ public class Trainee {
 	private String trainingStatus;
 	
 	@Column(name="batch_id")
-	private int batchId;
+	private Integer batchId;
 	
 	@Column(name="phone_number")
 	private String phoneNumber;
@@ -58,16 +58,16 @@ public class Trainee {
 	private String techScreenerName;
 	
 	@Column(name="revpro_project_completion")
-	private boolean revproProjectCompletion;
+	private Integer revproProjectCompletion;
 	
 	@Column(name="flag_notes")
 	private String flagNotes;
 	
 	@Column(name="flag_status")
-	private boolean flagStatus;
+	private String flagStatus;
 	
 	@Column(name="tech_screen_score")
-	private int techScreenScore;
+	private Integer techScreenScore;
 
 	public Integer getTraineeId() {
 		return traineeId;
@@ -181,11 +181,11 @@ public class Trainee {
 		this.techScreenerName = techScreenerName;
 	}
 
-	public boolean isRevproProjectCompletion() {
+	public Integer isRevproProjectCompletion() {
 		return revproProjectCompletion;
 	}
 
-	public void setRevproProjectCompletion(boolean revproProjectCompletion) {
+	public void setRevproProjectCompletion(Integer revproProjectCompletion) {
 		this.revproProjectCompletion = revproProjectCompletion;
 	}
 
@@ -197,11 +197,11 @@ public class Trainee {
 		this.flagNotes = flagNotes;
 	}
 
-	public boolean isFlagStatus() {
+	public String isFlagStatus() {
 		return flagStatus;
 	}
 
-	public void setFlagStatus(boolean flagStatus) {
+	public void setFlagStatus(String flagStatus) {
 		this.flagStatus = flagStatus;
 	}
 

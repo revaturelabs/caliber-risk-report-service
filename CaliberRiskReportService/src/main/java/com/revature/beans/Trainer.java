@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="trainer")
 @Entity
-@Table
+@Table(name="Caliber_trainer")
 public class Trainer {
 	
 	@Id

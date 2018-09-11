@@ -2,10 +2,10 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
     model(params) {
-        return (this.get('store').peekAll('batchweeklyreport', params.batch_id/**.query('batchweeklyreport', {
+        return (this.get('store').findAll('batchweeklyreport', {
             filter: {
-                batch_id: params.batch_id
+                idnum: params.idnum
             }
-        }*/))
+        }))
     }
 });
