@@ -233,4 +233,10 @@ public class BatchWeeklyReport {
 				+ enddate + ", weeks=" + weeks + ", currweek=" + currweek + ", categoryname=" + categoryname
 				+ ", reporttime=" + reporttime + "]";
 	}
+	
+	public boolean isRed() {
+		int total = qcgreens + qcyellow + qcred;
+		double redQuotient = ((double) qcred)/((double) total)*100.0;
+		return redQuotient <= 40;
+	}
 }
