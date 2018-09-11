@@ -23,6 +23,9 @@ public class BatchWeeklyReportServiceLayer {
     @Autowired
     private BatchWeeklyReportRepository batchWeeklyReportRepository;
     
+    @Autowired
+    private GeneratorService generatorService;
+    
     public BatchWeeklyReportServiceLayer(BatchWeeklyReportRepository batchWeeklyReportRepository) {
         this.batchWeeklyReportRepository = batchWeeklyReportRepository;
     }
@@ -36,6 +39,11 @@ public class BatchWeeklyReportServiceLayer {
     }
     
     public List<BatchWeeklyReport> getReports() {
+    	return batchWeeklyReportRepository.findAll();
+    }
+    
+    public List<BatchWeeklyReport> doAll() {
+    	generatorService.generateBatchWeekly();
     	return batchWeeklyReportRepository.findAll();
     }
 }
