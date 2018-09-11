@@ -1,11 +1,11 @@
-<p>This is the weekly batch report.</p>
-
-{{#each model as |report|}}
-<div>
-    <div class="container">
-        {{pie-chart varData=report}}
-    </div>
-</div>
-{{/each}}
-
-<p>End batch report.</p>
+<ul class="list-group">
+    {{#each model as |report|}}
+    <li class="list-group-item1">
+        <div>
+            <div class="container">
+                {{pie-chart varData=report}}
+            </div>
+        </div>
+    </li>
+    {{/each}}
+</ul>

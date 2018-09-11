@@ -9,6 +9,7 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('batchweekly', {path: '/reports/:idnum'});
   this.route('associateweekly', {path: '/associates/:assId'});
+  this.route('main-page');
 });
 
 export default Router;
