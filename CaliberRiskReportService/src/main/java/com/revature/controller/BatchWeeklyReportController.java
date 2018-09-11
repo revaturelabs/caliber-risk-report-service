@@ -44,4 +44,10 @@ public class BatchWeeklyReportController {
     	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.getReports();
     	return ResponseEntity.ok(bwr);
     }
+    
+    @GetMapping("/doall")
+    public ResponseEntity<List<BatchWeeklyReport>> doAll() {
+    	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.doAll();
+    	return ResponseEntity.ok(bwr);
+    }
 }
