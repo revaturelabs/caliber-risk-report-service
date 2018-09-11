@@ -11,7 +11,7 @@ import java.util.*;
 @NoArgsConstructor
 public class BATCHWEEKLYREPORT{
 	@PrimaryKey
-	private UUID BATCH_ID;
+	private int BATCH_ID;
 	@PrimaryKey
 	private Date REPORT_TIME;
 	
