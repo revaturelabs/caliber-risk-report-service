@@ -1,23 +1,32 @@
 package com.revature.beans;
 
-import java.util.UUID;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="category")
+@Entity
+@Table
 public class Category {
 	
-	private UUID categoryId;
+	@Id
+	@Column(name="category_id")
+	private Integer categoryId;
 	
+	@Column(name="skill_category")
 	private String skillCategory;
 	
+	@Column(name="is_active")
 	private boolean active;
 
-	public UUID getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
 
-	public void setCategoryId(UUID categoryId) {
+	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 
