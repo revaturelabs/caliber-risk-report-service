@@ -27,7 +27,7 @@ public class AssociateWeeklyReportServiceLayer {
 		return awrr.findAll();
 	}
 	
-	public List<AssociateWeeklyReport> getAllbyId(UUID uuid) {
-		return awrr.findByassId(uuid);
+	public List<AssociateWeeklyReport> getAllbyId(Integer id) {
+		return awrr.findByassId(id);
 	}
 }

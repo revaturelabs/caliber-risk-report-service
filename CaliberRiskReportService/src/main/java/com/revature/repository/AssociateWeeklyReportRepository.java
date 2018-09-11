@@ -8,7 +8,7 @@ import org.springframework.data.cassandra.repository.CassandraRepository;
 import com.revature.beans.AssociateWeeklyReport;
 import com.revature.beans.BatchWeeklyReport;
 
-public interface AssociateWeeklyReportRepository extends CassandraRepository<AssociateWeeklyReport, UUID> {
+public interface AssociateWeeklyReportRepository extends CassandraRepository<AssociateWeeklyReport, Integer> {
 
-	List<AssociateWeeklyReport> findByassId(UUID uuid);
+	List<AssociateWeeklyReport> findByassId(Integer id);
 }

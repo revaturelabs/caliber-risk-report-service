@@ -35,7 +35,7 @@ public class BatchWeeklyReportController {
     }
     
     @GetMapping("/reports/{id}")
-    public ResponseEntity<List<BatchWeeklyReport>> getAllReports(@PathVariable("id") UUID idnum) {
+    public ResponseEntity<List<BatchWeeklyReport>> getAllReports(@PathVariable("id") Integer idnum) {
         return ResponseEntity.ok(batchWeeklyReportServiceLayer.getAllReports(idnum));
     }
     

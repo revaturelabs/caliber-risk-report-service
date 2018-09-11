@@ -30,8 +30,8 @@ public class AssociateWeeklyReportController {
 	}
 	
 	@GetMapping(value="/associates/{id}")
-	public ResponseEntity<List<AssociateWeeklyReport>> getAllbyId(@PathVariable("id") UUID uuid) {
-		List<AssociateWeeklyReport> reports = awrsl.getAllbyId(uuid);
+	public ResponseEntity<List<AssociateWeeklyReport>> getAllbyId(@PathVariable("id") Integer id) {
+		List<AssociateWeeklyReport> reports = awrsl.getAllbyId(id);
 		return ResponseEntity.ok(reports);
 	}
 }

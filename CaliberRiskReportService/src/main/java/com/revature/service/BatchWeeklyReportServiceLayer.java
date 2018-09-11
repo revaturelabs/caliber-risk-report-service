@@ -27,11 +27,11 @@ public class BatchWeeklyReportServiceLayer {
         this.batchWeeklyReportRepository = batchWeeklyReportRepository;
     }
     
-    public BatchWeeklyReport getReportByReportIdAndDate(UUID idnum, Date reporttime) {
+    public BatchWeeklyReport getReportByReportIdAndDate(Integer idnum, Date reporttime) {
         return batchWeeklyReportRepository.findByIdnumAndReporttime(idnum, reporttime);
     }
     
-    public List<BatchWeeklyReport> getAllReports(UUID idnum) {
+    public List<BatchWeeklyReport> getAllReports(Integer idnum) {
         return batchWeeklyReportRepository.findByIdnum(idnum);
     }
     
