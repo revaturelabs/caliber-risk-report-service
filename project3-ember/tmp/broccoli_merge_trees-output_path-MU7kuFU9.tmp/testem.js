@@ -1,0 +1,1 @@
+/Users/vb/Desktop/charts-demo/ember-project3/node_modules/ember-cli/lib/broccoli/testem.js
