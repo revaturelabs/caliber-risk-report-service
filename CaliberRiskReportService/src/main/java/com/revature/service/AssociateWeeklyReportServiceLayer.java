@@ -14,6 +14,9 @@ public class AssociateWeeklyReportServiceLayer {
 
 	@Autowired
 	private AssociateWeeklyReportRepository awrr;
+	
+	@Autowired
+    private GeneratorService generatorService;
 
 	public AssociateWeeklyReportServiceLayer(AssociateWeeklyReportRepository awrr) {
 		this.awrr = awrr;
@@ -60,6 +63,11 @@ public class AssociateWeeklyReportServiceLayer {
 				redCount++;
 		}
 		float redDensity = ((float) redCount) / ((float) reports.size());
-		return redDensity >= .4;
+		return redDensity >= .4;	
+	}
+	
+	public List<AssociateWeeklyReport> doAll() {
+		generatorService.generateReports(new int[]{1});
+		return awrr.findAll();
 	}
 }

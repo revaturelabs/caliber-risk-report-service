@@ -197,7 +197,7 @@ public class Trainee {
 		this.flagNotes = flagNotes;
 	}
 
-	public String isFlagStatus() {
+	public String getFlagStatus() {
 		return flagStatus;
 	}
 
