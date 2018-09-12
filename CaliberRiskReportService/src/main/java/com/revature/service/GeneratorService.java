@@ -58,6 +58,16 @@ public class GeneratorService {
 	@Autowired
 	TrainerRepository trr;
 	
+	public boolean checkData() {
+		List<BatchWeeklyReport> reports = bwrr.findAll();
+		for (BatchWeeklyReport report : reports) {
+			if (new Date().getTime() - report.getReporttime().getTime() > 806400000) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 	public void generateBatchWeekly() {
 		List<RevBatch> batches = rbr.findAll();
 		List<Assessment> assessments = ar.findAll();

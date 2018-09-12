@@ -6,7 +6,6 @@
 package com.revature.controller;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -48,6 +47,12 @@ public class BatchWeeklyReportController {
     @GetMapping("/doall")
     public ResponseEntity<List<BatchWeeklyReport>> doAll() {
     	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.doAll();
+    	return ResponseEntity.ok(bwr);
+    }
+    
+    @GetMapping("/reds")
+    public ResponseEntity<List<BatchWeeklyReport>> getReds() {
+    	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.getReportsWithConsecutiveReds();
     	return ResponseEntity.ok(bwr);
     }
 }
