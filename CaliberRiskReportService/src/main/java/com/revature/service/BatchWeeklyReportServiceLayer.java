@@ -85,11 +85,12 @@ public class BatchWeeklyReportServiceLayer {
     		if (r.isRed()) redCount++;
     	}
     	float redDensity = ((float) redCount)/((float) reports.size());
+    	//if 4 out of every 10 are red
     	return redDensity >= .4;
     }
     
     public List<BatchWeeklyReport> doAll() {
-    	generatorService.generateBatchWeekly();
+    	generatorService.generateReports(new int[]{0});
     	return batchWeeklyReportRepository.findAll();
     }
 }
