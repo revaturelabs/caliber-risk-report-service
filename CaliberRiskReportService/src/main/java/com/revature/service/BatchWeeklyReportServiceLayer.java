@@ -60,12 +60,13 @@ public class BatchWeeklyReportServiceLayer {
     	}
     	
     	for (List<BatchWeeklyReport> i: map.values()) {
-    		if (hasConsecutiveReds(i)) result.addAll(i);
+    		if (hasTooManyReds(i)) result.addAll(i);
     	}
     	
     	return result;
     }
     
+    /*
     private boolean hasConsecutiveReds(List<BatchWeeklyReport> reports) {
     	boolean prevIsRed = false;
     	boolean currIsRed;
@@ -75,6 +76,16 @@ public class BatchWeeklyReportServiceLayer {
     		prevIsRed = currIsRed;
     	}
     	return false;
+    }
+    */
+    
+    private boolean hasTooManyReds(List<BatchWeeklyReport> reports) {
+    	int redCount = 0;
+    	for (BatchWeeklyReport r: reports) {
+    		if (r.isRed()) redCount++;
+    	}
+    	float redDensity = ((float) redCount)/((float) reports.size());
+    	return redDensity >= .4;
     }
     
     public List<BatchWeeklyReport> doAll() {
