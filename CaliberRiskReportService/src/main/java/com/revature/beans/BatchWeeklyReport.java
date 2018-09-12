@@ -233,4 +233,8 @@ public class BatchWeeklyReport {
 				+ enddate + ", weeks=" + weeks + ", currweek=" + currweek + ", categoryname=" + categoryname
 				+ ", reporttime=" + reporttime + "]";
 	}
+	
+	public boolean isRed() {
+		return qcscore <= 40;
+	}
 }
