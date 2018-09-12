@@ -7,9 +7,11 @@ package com.revature.service;
 
 import com.revature.beans.BatchWeeklyReport;
 import com.revature.repository.BatchWeeklyReportRepository;
+
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-import java.util.UUID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,19 +25,71 @@ public class BatchWeeklyReportServiceLayer {
     @Autowired
     private BatchWeeklyReportRepository batchWeeklyReportRepository;
     
+    @Autowired
+    private GeneratorService generatorService;
+    
     public BatchWeeklyReportServiceLayer(BatchWeeklyReportRepository batchWeeklyReportRepository) {
         this.batchWeeklyReportRepository = batchWeeklyReportRepository;
     }
     
-    public BatchWeeklyReport getReportByReportIdAndDate(UUID idnum, Date reporttime) {
+    public BatchWeeklyReport getReportByReportIdAndDate(Integer idnum, Date reporttime) {
         return batchWeeklyReportRepository.findByIdnumAndReporttime(idnum, reporttime);
     }
     
-    public List<BatchWeeklyReport> getAllReports(UUID idnum) {
+    public List<BatchWeeklyReport> getAllReports(Integer idnum) {
         return batchWeeklyReportRepository.findByIdnum(idnum);
     }
     
     public List<BatchWeeklyReport> getReports() {
+    	return batchWeeklyReportRepository.findAll();
+    }
+    
+    public List<BatchWeeklyReport> getReportsWithConsecutiveReds() {
+    	List<BatchWeeklyReport> result = new ArrayList<>();
+    	HashMap<Integer, List<BatchWeeklyReport>> map = new HashMap<>();
+    	
+    	for (BatchWeeklyReport r: getReports()) {
+    		Integer id = r.getIdnum();
+    		if (!map.containsKey(id)) {
+    			List<BatchWeeklyReport> newList = new ArrayList<>();
+    			newList.add(r);
+    			map.put(id, newList);
+    		} else {
+    			map.get(id).add(r);
+    		}
+    	}
+    	
+    	for (List<BatchWeeklyReport> i: map.values()) {
+    		if (hasTooManyReds(i)) result.addAll(i);
+    	}
+    	
+    	return result;
+    }
+    
+    /*
+    private boolean hasConsecutiveReds(List<BatchWeeklyReport> reports) {
+    	boolean prevIsRed = false;
+    	boolean currIsRed;
+    	for (BatchWeeklyReport r: reports) {
+    		currIsRed = r.isRed();
+    		if (currIsRed && prevIsRed) return true;
+    		prevIsRed = currIsRed;
+    	}
+    	return false;
+    }
+    */
+    
+    private boolean hasTooManyReds(List<BatchWeeklyReport> reports) {
+    	int redCount = 0;
+    	for (BatchWeeklyReport r: reports) {
+    		if (r.isRed()) redCount++;
+    	}
+    	float redDensity = ((float) redCount)/((float) reports.size());
+    	return redDensity >= .4;
+    }
+    
+    public List<BatchWeeklyReport> doAll() {
+    	generatorService.generateBatchWeekly();
     	return batchWeeklyReportRepository.findAll();
     }
 }

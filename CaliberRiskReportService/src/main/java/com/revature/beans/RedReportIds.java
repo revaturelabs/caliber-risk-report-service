@@ -8,6 +8,11 @@ import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+/**
+ * TODO: class description
+ * @author TODO: author
+ *
+ */
 @Table
 public class RedReportIds {
 	@Column("Associate_ids")

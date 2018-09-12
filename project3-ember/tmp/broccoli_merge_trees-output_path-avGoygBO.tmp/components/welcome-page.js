@@ -1,0 +1,1 @@
+/Users/vb/Desktop/charts-demo/ember-project3/tmp/broccoli_merge_trees-input_base_path-jGiwtDiM.tmp/6/components/welcome-page.js
