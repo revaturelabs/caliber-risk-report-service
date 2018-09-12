@@ -63,7 +63,7 @@ public class AssociateWeeklyReportServiceLayer {
 				redCount++;
 		}
 		float redDensity = ((float) redCount) / ((float) reports.size());
-		return redDensity >= .4;	
+		return redDensity >= 0.3;	
 	}
 	
 	public List<AssociateWeeklyReport> doAll() {
