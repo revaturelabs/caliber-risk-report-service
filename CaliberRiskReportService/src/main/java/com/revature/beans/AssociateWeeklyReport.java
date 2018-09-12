@@ -160,5 +160,7 @@ public class AssociateWeeklyReport {
 				+ ", reporttime=" + reporttime + "]";
 	}
 	
-	
+	public boolean isRed() {
+		return qcscore <= 40;
+	}
 }

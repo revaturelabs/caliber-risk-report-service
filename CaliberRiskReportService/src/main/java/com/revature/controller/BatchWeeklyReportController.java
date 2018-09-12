@@ -52,7 +52,7 @@ public class BatchWeeklyReportController {
     
     @GetMapping("/reds")
     public ResponseEntity<List<BatchWeeklyReport>> getReds() {
-    	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.getReportsWithConsecutiveReds();
+    	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.getReportsWithTooManyReds();
     	return ResponseEntity.ok(bwr);
     }
 }

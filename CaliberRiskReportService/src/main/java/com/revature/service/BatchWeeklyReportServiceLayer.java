@@ -44,7 +44,7 @@ public class BatchWeeklyReportServiceLayer {
     	return batchWeeklyReportRepository.findAll();
     }
     
-    public List<BatchWeeklyReport> getReportsWithConsecutiveReds() {
+    public List<BatchWeeklyReport> getReportsWithTooManyReds() {
     	List<BatchWeeklyReport> result = new ArrayList<>();
     	HashMap<Integer, List<BatchWeeklyReport>> map = new HashMap<>();
     	
