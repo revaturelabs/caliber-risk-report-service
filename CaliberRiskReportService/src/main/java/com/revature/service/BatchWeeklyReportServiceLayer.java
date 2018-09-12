@@ -66,6 +66,28 @@ public class BatchWeeklyReportServiceLayer {
     	return result;
     }
     
+    public List<BatchWeeklyReport> getCategoriesWithTooManyReds() {
+    	List<BatchWeeklyReport> result = new ArrayList<>();
+    	HashMap<String, List<BatchWeeklyReport>> map = new HashMap<>();
+    	
+    	for (BatchWeeklyReport r: getReports()) {
+    		String category = r.getCategoryname();
+    		if (!map.containsKey(category)) {
+    			List<BatchWeeklyReport> newList = new ArrayList<>();
+    			newList.add(r);
+    			map.put(category, newList);
+    		} else {
+    			map.get(category).add(r);
+    		}
+    	}
+    	
+    	for (List<BatchWeeklyReport> i: map.values()) {
+    		if (hasTooManyReds(i)) result.addAll(i);
+    	}
+    	
+    	return result;
+    }
+    
     /*
     private boolean hasConsecutiveReds(List<BatchWeeklyReport> reports) {
     	boolean prevIsRed = false;
