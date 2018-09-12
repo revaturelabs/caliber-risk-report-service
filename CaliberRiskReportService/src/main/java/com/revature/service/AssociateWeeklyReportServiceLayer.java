@@ -14,6 +14,9 @@ public class AssociateWeeklyReportServiceLayer {
 	
 	@Autowired
 	private AssociateWeeklyReportRepository awrr;
+	
+	@Autowired
+    private GeneratorService generatorService;
 
 	public AssociateWeeklyReportServiceLayer(AssociateWeeklyReportRepository awrr) {
 		this.awrr = awrr;
@@ -29,5 +32,10 @@ public class AssociateWeeklyReportServiceLayer {
 	
 	public List<AssociateWeeklyReport> getAllbyId(Integer id) {
 		return awrr.findByassId(id);
+	}
+	
+	public List<AssociateWeeklyReport> doAll() {
+		generatorService.generateReports(new int[]{1});
+		return awrr.findAll();
 	}
 }

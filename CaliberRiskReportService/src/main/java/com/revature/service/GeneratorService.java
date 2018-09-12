@@ -58,13 +58,32 @@ public class GeneratorService {
 	@Autowired
 	TrainerRepository trr;
 	
-	public void generateBatchWeekly() {
+	public boolean checkData() {
+		List<BatchWeeklyReport> reports = bwrr.findAll();
+		for (BatchWeeklyReport report : reports) {
+			if (new Date().getTime() - report.getReporttime().getTime() > 806400000) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public void generateReports(int[] args) {
 		List<RevBatch> batches = rbr.findAll();
 		List<Assessment> assessments = ar.findAll();
 		List<Category> categories = cr.findAll();
 		List<Grade> grades = gr.findAll();
 		List<Trainee> trainees = tr.findAll();
 		List<Trainer> trainers = trr.findAll();
+		for (int i = 0; i < args.length; i++) {
+			switch (args[i]) {
+			case(0): generateBatchWeekly(batches, assessments, categories, grades, trainees, trainers); break;
+			case(1): generateAssociateWeekly(batches, assessments, categories, grades, trainees, trainers); break;
+			}
+		}
+	}
+	
+	public void generateBatchWeekly(List<RevBatch> batches, List<Assessment> assessments, List<Category> categories, List<Grade> grades, List<Trainee> trainees, List<Trainer> trainers) {
 		for (RevBatch batch : batches) {
 			//get associates in batch
 			List<Trainee> batchass = new ArrayList<>();
@@ -76,10 +95,7 @@ public class GeneratorService {
 			
 			//loop through assessments
 			for (Assessment ass : assessments) {
-				if (ass.getBatchId() != batch.getBatchId()) {
-					continue;
-				}
-				if (!ass.getType().equals("Verbal")) {
+				if (ass.getBatchId() != batch.getBatchId() || !ass.getType().equals("Verbal")) {
 					continue;
 				}
 				BatchWeeklyReport report = new BatchWeeklyReport();
@@ -156,7 +172,52 @@ public class GeneratorService {
 		}
 	}
 	
-	public List<AssociateWeeklyReport> generateAssociateWeekly() {
-		return null;
+	public void generateAssociateWeekly(List<RevBatch> batches, List<Assessment> assessments, List<Category> categories, List<Grade> grades, List<Trainee> trainees, List<Trainer> trainers) {
+		for (Trainee trainee : trainees) {
+			AssociateWeeklyReport awr = new AssociateWeeklyReport();
+			List<Grade> trgrades = new ArrayList<>();
+			for (Grade grade : grades) {
+				if (trainee.getTraineeId() == grade.getTraineeId()) {
+					for (Assessment assessment : assessments) {
+						if (assessment.getAssessmentId() == grade.getAssessmentId() && assessment.getType().equals("Verbal")) {
+							trgrades.add(grade);
+							break;
+						}	
+					}
+				}
+			}
+			awr.setAssId(trainee.getTraineeId());
+			awr.setEmail(trainee.getTraineeEmail());
+			awr.setFlagstatus(trainee.getFlagStatus());
+			awr.setIdnum(trainee.getBatchId());
+			awr.setName(trainee.getTraineeName());
+			awr.setPhone(trainee.getPhoneNumber());
+			awr.setProfileurl(trainee.getProfileUrl());
+			awr.setStatus(trainee.getTrainingStatus());
+			for (Grade trgrade : trgrades) {
+				int count = 0;
+				for (Grade temp : trgrades) {
+					if (trgrade.getDate().getTime() >= temp.getDate().getTime() && temp.getScore() < 40) {
+						count += 1;
+					}
+				}
+				awr.setQcred(count);
+				awr.setQcscore(trgrade.getScore());
+				awr.setReporttime(trgrade.getDate());
+				for (Assessment assessment : assessments) {
+					if (trgrade.getAssessmentId() == assessment.getAssessmentId()) {
+						awr.setWeek(assessment.getWeek());
+						for (Category category : categories) {
+							if (category.getCategoryId() == assessment.getCategory()) {
+								awr.setSkill(category.getSkillCategory());
+								break;
+							}
+						}
+						break;
+					}
+				}
+				awrr.save(awr);
+			}
+		}
 	}
 }
