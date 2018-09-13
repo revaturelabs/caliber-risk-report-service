@@ -34,4 +34,16 @@ public class AssociateWeeklyReportController {
 		List<AssociateWeeklyReport> reports = awrsl.getAllbyId(id);
 		return ResponseEntity.ok(reports);
 	}
+	
+	@GetMapping(value="/adoall")
+	public ResponseEntity<List<AssociateWeeklyReport>> doAll() {
+		List<AssociateWeeklyReport> reports = awrsl.doAll();
+		return ResponseEntity.ok(reports);
+	}
+	
+	@GetMapping(value="/red/associates")
+	public ResponseEntity<List<AssociateWeeklyReport>> getReds() {
+		List<AssociateWeeklyReport> reports = awrsl.getReportsWithToManyReds();
+		return ResponseEntity.ok(reports);
+	}
 }

@@ -235,8 +235,6 @@ public class BatchWeeklyReport {
 	}
 	
 	public boolean isRed() {
-		int total = qcgreens + qcyellow + qcred;
-		double redQuotient = ((double) qcred)/((double) total)*100.0;
-		return redQuotient <= 40;
+		return qcscore <= 40;
 	}
 }

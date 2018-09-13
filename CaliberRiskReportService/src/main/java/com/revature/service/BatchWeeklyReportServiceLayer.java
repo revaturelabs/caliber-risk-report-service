@@ -44,7 +44,7 @@ public class BatchWeeklyReportServiceLayer {
     	return batchWeeklyReportRepository.findAll();
     }
     
-    public List<BatchWeeklyReport> getReportsWithConsecutiveReds() {
+    public List<BatchWeeklyReport> getReportsWithTooManyReds() {
     	List<BatchWeeklyReport> result = new ArrayList<>();
     	HashMap<Integer, List<BatchWeeklyReport>> map = new HashMap<>();
     	
@@ -60,12 +60,35 @@ public class BatchWeeklyReportServiceLayer {
     	}
     	
     	for (List<BatchWeeklyReport> i: map.values()) {
-    		if (hasConsecutiveReds(i)) result.addAll(i);
+    		if (hasTooManyReds(i)) result.addAll(i);
     	}
     	
     	return result;
     }
     
+    public List<BatchWeeklyReport> getCategoriesWithTooManyReds() {
+    	List<BatchWeeklyReport> result = new ArrayList<>();
+    	HashMap<String, List<BatchWeeklyReport>> map = new HashMap<>();
+    	
+    	for (BatchWeeklyReport r: getReports()) {
+    		String category = r.getCategoryname();
+    		if (!map.containsKey(category)) {
+    			List<BatchWeeklyReport> newList = new ArrayList<>();
+    			newList.add(r);
+    			map.put(category, newList);
+    		} else {
+    			map.get(category).add(r);
+    		}
+    	}
+    	
+    	for (List<BatchWeeklyReport> i: map.values()) {
+    		if (hasTooManyReds(i)) result.addAll(i);
+    	}
+    	
+    	return result;
+    }
+    
+    /*
     private boolean hasConsecutiveReds(List<BatchWeeklyReport> reports) {
     	boolean prevIsRed = false;
     	boolean currIsRed;
@@ -76,9 +99,20 @@ public class BatchWeeklyReportServiceLayer {
     	}
     	return false;
     }
+    */
+    
+    private boolean hasTooManyReds(List<BatchWeeklyReport> reports) {
+    	int redCount = 0;
+    	for (BatchWeeklyReport r: reports) {
+    		if (r.isRed()) redCount++;
+    	}
+    	float redDensity = ((float) redCount)/((float) reports.size());
+    	//if 4 out of every 10 are red
+    	return redDensity >= .4;
+    }
     
     public List<BatchWeeklyReport> doAll() {
-    	generatorService.generateBatchWeekly();
+    	generatorService.generateReports(new int[]{0});
     	return batchWeeklyReportRepository.findAll();
     }
 }
