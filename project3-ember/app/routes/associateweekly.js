@@ -1,10 +1,12 @@
 /**
-* The Application adapter makes a test that takes the batch ID as a parameter, the make
-* test method then sets the attributes for the bathID parameter.
+* The associate weekly route makes a model that returns all of the associate weekly
+* reports.
 *
-* @route  Associateweekly
-* @model A model that
-* @param {object} batchID A number that represents the batch ID.
+* @class Associateweekly route
+* @method A model that grabs all the associate weekly reports and returns them as a list
+* of objects.
+* @param {object} params A object that sets the associate ID field to the associate weekly
+* report returned.
 */
 
 

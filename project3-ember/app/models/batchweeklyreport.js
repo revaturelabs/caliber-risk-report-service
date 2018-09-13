@@ -1,25 +1,25 @@
 /**
 * This is a description of the associate weekly report model
 *
-* @model associate weekly report
-* @field {idnum} Sets the expected primary key datatype to a number.
-* @field {batchname} Sets the expected batch name datatype to a string.
-* @field {qcgreens} Sets the expected qcgreens datatype to a number.
-* @field {qcyellow} Sets the expected qcyellow datatype to a number.
-* @field {qcred} Sets the expected qcred datatype to a number.
-* @field {qcscore} Sets the expected qcscore datatype to a number.
-* @field {survgreen} Sets the expected survgreen datatype to a number.
-* @field {survyellow} Sets the expected survyellow datatype to a number.
-* @field {survred} Sets the expected survred datatype to a number.
-* @field {survscore} Sets the expected survscore datatype to a number.
-* @field {trainer} Sets the expected trainer datatype to a string.
-* @field {location} Sets the expected location datatype to a string.
-* @field {skilltype} Sets the expected skilltype datatype to a string.
-* @field {enddate} Sets the expected enddate datatype to a date.
-* @field {weeks} Sets the expected weeks datatype to a number.
-* @field {currweek} Sets the expected currweek datatype to a number.
-* @field {categoryname} Sets the expected categoryname datatype to a string.
-* @field {reporttime} Sets the expected reporttime datatype to a date.
+* @class associate weekly report model
+* @property {idnum} Sets the expected primary key datatype to a number.
+* @property {batchname} Sets the expected batch name datatype to a string.
+* @property {qcgreens} Sets the expected qcgreens datatype to a number.
+* @property {qcyellow} Sets the expected qcyellow datatype to a number.
+* @property {qcred} Sets the expected qcred datatype to a number.
+* @property {qcscore} Sets the expected qcscore datatype to a number.
+* @property {survgreen} Sets the expected survgreen datatype to a number.
+* @property {survyellow} Sets the expected survyellow datatype to a number.
+* @property {survred} Sets the expected survred datatype to a number.
+* @property {survscore} Sets the expected survscore datatype to a number.
+* @property{trainer} Sets the expected trainer datatype to a string.
+* @property {location} Sets the expected location datatype to a string.
+* @property {skilltype} Sets the expected skilltype datatype to a string.
+* @property {enddate} Sets the expected enddate datatype to a date.
+* @property {weeks} Sets the expected weeks datatype to a number.
+* @property {currweek} Sets the expected currweek datatype to a number.
+* @property {categoryname} Sets the expected categoryname datatype to a string.
+* @property {reporttime} Sets the expected reporttime datatype to a date.
 */
 
 

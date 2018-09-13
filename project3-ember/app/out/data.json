@@ -1,0 +1,331 @@
+{
+    "project": {},
+    "files": {
+        "adapters/application.js": {
+            "name": "adapters/application.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "adapters/associateweeklyreport.js": {
+            "name": "adapters/associateweeklyreport.js",
+            "modules": {},
+            "classes": {
+                "": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "adapters/batchweeklyreport.js": {
+            "name": "adapters/batchweeklyreport.js",
+            "modules": {},
+            "classes": {
+                "Application Adapter": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/associateweeklyreport.js": {
+            "name": "models/associateweeklyreport.js",
+            "modules": {},
+            "classes": {},
+            "fors": {},
+            "namespaces": {}
+        },
+        "models/batchweeklyreport.js": {
+            "name": "models/batchweeklyreport.js",
+            "modules": {},
+            "classes": {
+                "associate weekly report model": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/application.js": {
+            "name": "routes/application.js",
+            "modules": {},
+            "classes": {
+                "Application route": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/associateweekly.js": {
+            "name": "routes/associateweekly.js",
+            "modules": {},
+            "classes": {
+                "Associateweekly route": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/batchweekly.js": {
+            "name": "routes/batchweekly.js",
+            "modules": {},
+            "classes": {
+                "batchweekly route": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/index.js": {
+            "name": "routes/index.js",
+            "modules": {},
+            "classes": {
+                "index route": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "routes/main-page.js": {
+            "name": "routes/main-page.js",
+            "modules": {},
+            "classes": {
+                "main-page": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "serializers/associateweeklyreport.js": {
+            "name": "serializers/associateweeklyreport.js",
+            "modules": {},
+            "classes": {
+                "associate weekly report serializer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "serializers/batchweeklyreport.js": {
+            "name": "serializers/batchweeklyreport.js",
+            "modules": {},
+            "classes": {
+                "batch weekly report serializer": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {},
+    "classes": {
+        "": {
+            "file": "adapters/associateweeklyreport.js",
+            "line": 1,
+            "description": "This is a description of the associate weekly report adapter",
+            "itemtype": "property",
+            "name": "host Specifies the Rest endpoint.",
+            "return": {
+                "description": "Returns the associate weekly report from the Associate weekly report\n as a list of objects from the backend controller.",
+                "type": "Object"
+            }
+        },
+        "Application Adapter": {
+            "name": "Application Adapter",
+            "shortname": "Application Adapter",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "adapters/batchweeklyreport.js",
+            "line": 1,
+            "description": "This is a description of the associate weekly report adapter",
+            "return": {
+                "description": "Returns the batch weekly report from the batch weekly report backend\ncontroller as a list of objects.",
+                "type": "Object"
+            }
+        },
+        "associate weekly report model": {
+            "name": "associate weekly report model",
+            "shortname": "associate weekly report model",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "models/batchweeklyreport.js",
+            "line": 1,
+            "description": "This is a description of the associate weekly report model",
+            "itemtype": "property",
+            "type": "Email"
+        },
+        "Application route": {
+            "name": "Application route",
+            "shortname": "Application route",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "routes/application.js",
+            "line": 1,
+            "description": "The Application adapter makes a test that takes the batch ID as a parameter, the make\ntest method then sets the attributes for the bathID parameter.",
+            "itemtype": "method",
+            "params": [
+                {
+                    "name": "batchID",
+                    "description": "A number that represents the batch ID.",
+                    "type": "Number"
+                }
+            ]
+        },
+        "Associateweekly route": {
+            "name": "Associateweekly route",
+            "shortname": "Associateweekly route",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "routes/associateweekly.js",
+            "line": 1,
+            "description": "The associate weekly route makes a model that returns all of the associate weekly\nreports.",
+            "itemtype": "method",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "A object that sets the associate ID field to the associate weekly\nreport returned.",
+                    "type": "Object"
+                }
+            ]
+        },
+        "batchweekly route": {
+            "name": "batchweekly route",
+            "shortname": "batchweekly route",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "routes/batchweekly.js",
+            "line": 1,
+            "description": "The batch weekly route makes a model that returns the primary key of the batch reports.",
+            "itemtype": "method",
+            "params": [
+                {
+                    "name": "params",
+                    "description": "A object that sets the idnum field to the idnum primary key\nreturned.",
+                    "type": "Object"
+                }
+            ]
+        },
+        "index route": {
+            "name": "index route",
+            "shortname": "index route",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "routes/index.js",
+            "line": 1,
+            "description": "The batch weekly route uses a before model that redirects the client to the main-page",
+            "itemtype": "method"
+        },
+        "main-page": {
+            "name": "main-page",
+            "shortname": "main-page",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "routes/main-page.js",
+            "line": 1,
+            "description": "The main-page route."
+        },
+        "associate weekly report serializer": {
+            "name": "associate weekly report serializer",
+            "shortname": "associate weekly report serializer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "serializers/associateweeklyreport.js",
+            "line": 1,
+            "description": "The associate weekly report serializer uses the normalizeResponse method to normalize a\nassociate weekly report payload from the server to a JSON-API Document.",
+            "itemtype": "method",
+            "type": "Number",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "The DS.Store.",
+                    "type": "DS.Store"
+                },
+                {
+                    "name": "primaryModelClass",
+                    "description": "The primary model class.",
+                    "type": "DS.Model"
+                },
+                {
+                    "name": "payload",
+                    "description": "The payload that will be normalized.",
+                    "type": "Object"
+                },
+                {
+                    "name": "id",
+                    "description": "The id.",
+                    "type": "Number"
+                },
+                {
+                    "name": "requestType",
+                    "description": "The type of the request sent in.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "Returns a JSON-API Document.",
+                "type": "Object"
+            }
+        },
+        "batch weekly report serializer": {
+            "name": "batch weekly report serializer",
+            "shortname": "batch weekly report serializer",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "file": "serializers/batchweeklyreport.js",
+            "line": 1,
+            "description": "The batch weekly report serializer uses the normalizeResponse method to normalize a\nthe batch weekly report payload from the server to a JSON-API Document.",
+            "itemtype": "method",
+            "type": "Number",
+            "params": [
+                {
+                    "name": "store",
+                    "description": "The DS.Store.",
+                    "type": "DS.Store"
+                },
+                {
+                    "name": "primaryModelClass",
+                    "description": "The primary model class.",
+                    "type": "DS.Model"
+                },
+                {
+                    "name": "payload",
+                    "description": "The payload that will be normalized.",
+                    "type": "Object"
+                },
+                {
+                    "name": "id",
+                    "description": "The id.",
+                    "type": "Number"
+                },
+                {
+                    "name": "requestType",
+                    "description": "The type of the request sent in.",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "Returns a JSON-API Document.",
+                "type": "Object"
+            }
+        }
+    },
+    "elements": {},
+    "classitems": [],
+    "warnings": []
+}

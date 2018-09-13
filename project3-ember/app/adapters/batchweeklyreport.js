@@ -1,7 +1,7 @@
 /**
 * This is a description of the associate weekly report adapter
 *
-* @adapter
+* @class Application Adapter
 * @return {object} Returns the batch weekly report from the batch weekly report backend
 * controller as a list of objects.
 */

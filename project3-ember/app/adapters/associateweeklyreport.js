@@ -1,7 +1,7 @@
 /**
 * This is a description of the associate weekly report adapter
 *
-* @adapter
+* @class
 * @return {object} Returns the associate weekly report from the Associate weekly report
 *  as a list of objects from the backend controller.
 */

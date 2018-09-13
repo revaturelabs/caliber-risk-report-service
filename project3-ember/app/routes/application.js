@@ -1,3 +1,12 @@
+/**
+* The Application adapter makes a test that takes the batch ID as a parameter, the make
+* test method then sets the attributes for the bathID parameter.
+*
+* @class  Application route
+* @method makeTest
+* @param {number} batchID A number that represents the batch ID.
+*/
+
 import Route from '@ember/routing/route';
 
 export default Route.extend({

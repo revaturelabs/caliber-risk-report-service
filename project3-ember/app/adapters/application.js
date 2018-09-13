@@ -1,8 +1,8 @@
 /**
 * This is a description of the associate weekly report model
 *
-* @adapter
-* @host Specifies the Rest endpoint.
+* @class
+* @property host Specifies the Rest endpoint.
 */
 import DS from 'ember-data';
 
