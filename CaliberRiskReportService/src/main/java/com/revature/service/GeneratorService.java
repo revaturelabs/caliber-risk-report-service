@@ -30,8 +30,9 @@ import com.revature.repository.TrainerRepository;
 
 
 /**
- * Generator Service used for generating data based on expected input from 
- * existing tables, used for testing purposes
+ * Generator Service used for generating data objects 
+ * based on expected input from existing tables to
+ * act as reports to display in front-end
  * 
  * @author Kyle Butterfield, David Martinez
  *
@@ -66,6 +67,11 @@ public class GeneratorService {
 	@Autowired
 	TrainerRepository trr;
 	
+	/**
+	 * TBI - The way to stop automatic generation
+	 * from happening.
+	 * @return boolean	
+	 */
 	public boolean checkData() {
 		List<BatchWeeklyReport> reports = bwrr.findAll();
 		for (BatchWeeklyReport report : reports) {
@@ -140,6 +146,13 @@ public class GeneratorService {
 						assgrades.add(temp);
 					}
 				}
+				
+				/*
+				 * Used for associate quality control reports
+				 * sent in every week.  Currently based on 
+				 * randomly generated numbers because we don't
+				 * have associate's QC reports on record yet.
+				 */
 				Integer qcgreen = 0;
 				Integer qcyellow = 0;
 				Integer qcred = 0;
@@ -201,6 +214,19 @@ public class GeneratorService {
 		}
 	}
 	
+	/**
+	 * Generate the actual report for an Associate with 
+	 * given parameters from GenerateReports.  Takes
+	 * lists for each parameter and inputs them into a 
+	 * form-ready AssociateWeeklyReport awr object.
+	 * 
+	 * @param batches
+	 * @param assessments
+	 * @param categories
+	 * @param grades
+	 * @param trainees
+	 * @param trainers
+	 */
 	public void generateAssociateWeekly(List<RevBatch> batches, List<Assessment> assessments, List<Category> categories, List<Grade> grades, List<Trainee> trainees, List<Trainer> trainers) {
 		for (Trainee trainee : trainees) {
 			AssociateWeeklyReport awr = new AssociateWeeklyReport();

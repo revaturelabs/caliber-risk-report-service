@@ -45,9 +45,14 @@ public class BatchWeeklyReportServiceLayer {
     }
     
     /**
-	 * 
+     * Fetches batch reports using getReports() and
+     * calculates reports that have "too many reds"
+     * in them based on hasTooManyReds(), and then
+     * adds them to an ArrayList
+     * 
+	 * @see hasTooManyReds, getReports
 	 * @author William Scott
-	 * @return
+	 * @return result	ArrayList of every report that has too many reds
 	 */
     public List<BatchWeeklyReport> getReportsWithTooManyReds() {
     	List<BatchWeeklyReport> result = new ArrayList<>();
@@ -72,6 +77,10 @@ public class BatchWeeklyReportServiceLayer {
     }
     
     /**
+     * Fetches batch reports using getReports() and
+     * calculates reports that have "too many reds"
+     * in them based on the category of the batch
+     * and then adds them to an ArrayList
 	 * 
 	 * @author William Scott
 	 * @return
@@ -112,9 +121,12 @@ public class BatchWeeklyReportServiceLayer {
     */
     
     /**
+	 * Calculates whether a batch report has a red
+	 * percentile over 40%
 	 * 
+	 * @see getCategoriesWithTooManyReds
 	 * @author William Scott
-	 * @return
+	 * @return boolean	Whether or not a report contains 40% reds or more.
 	 */
     private boolean hasTooManyReds(List<BatchWeeklyReport> reports) {
     	int redCount = 0;
@@ -126,6 +138,12 @@ public class BatchWeeklyReportServiceLayer {
     	return redDensity >= .4;
     }
     
+    /**
+     * When a request is sent in, all Batch reports are generated
+	 * and then sent in the response to generate them in Ember.
+	 * 
+     * @return batchWeeklyReportRepository	List of Batch Weekly Reports to be displayed
+     */
     public List<BatchWeeklyReport> doAll() {
     	generatorService.generateReports(new int[]{0});
     	return batchWeeklyReportRepository.findAll();

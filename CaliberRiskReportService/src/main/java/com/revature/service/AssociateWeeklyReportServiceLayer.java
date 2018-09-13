@@ -89,7 +89,7 @@ public class AssociateWeeklyReportServiceLayer {
 
 	/**
 	 * Checks Associate Weekly Reports to calculate whether or not they meet the 
-	 * requirement for having too many reds before adding it to an ArrayList
+	 * requirement for having too many reds (30%) before adding it to an ArrayList
 	 * 
 	 * @see		getReportsWithToManyReds
 	 * @author 	William Scott
@@ -106,7 +106,10 @@ public class AssociateWeeklyReportServiceLayer {
 	}
 	
 	/**
-	 * @return
+	 * When a request is sent in, all Associate reports are generated
+	 * and then sent in the response to generate them in Ember.
+	 * 
+	 * @return awrr		List of Associate Weekly Reports to be displayed
 	 */
 	public List<AssociateWeeklyReport> doAll() {
 		generatorService.generateReports(new int[]{1});
