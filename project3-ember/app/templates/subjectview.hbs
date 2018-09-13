@@ -1,0 +1,13 @@
+
+<center><h1>Subject{{!--params.subject--}}</h1>
+
+{{#each model.theReport as |report|}}
+<div>
+    <div>{{report.batchName}}</div>
+    <div>{{report.idnum}}</div>
+    <div>{{report.reporttime}}</div>
+    {{#link-to "batchweekly" report.idnum (query-params categoryname=report.categoryname batchName=report.batchName) tagName='button'}}View Report{{/link-to}}
+    <br><br>
+</div>
+{{/each}}
+</center>

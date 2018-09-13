@@ -1,0 +1,13 @@
+
+<center><h1>Red Batch Reports</h1>
+
+{{#each model.batches as |report|}}
+<div>
+    <h5><div><b>Batch name:</b>{{report.batchName}}</div>
+    <div><b>ID:</b>{{report.idnum}}</div>
+    <div><b>Report time:</b>{{report.reporttime}}</div></h5>
+    {{#link-to "batchweekly" report.idnum (query-params categoryname=report.categoryname batchName=report.batchName) tagName='button'}}View Report{{/link-to}}
+    <br><br>
+</div>
+{{/each}}
+</center>

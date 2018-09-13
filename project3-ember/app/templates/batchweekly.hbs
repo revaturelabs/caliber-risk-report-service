@@ -1,11 +1,28 @@
-<p>This is the weekly batch report.</p>
-
-{{#each model as |report|}}
+{{#each model.theReport as |report|}}
 <div>
     <div class="container">
         {{pie-chart varData=report}}
     </div>
+    <div class="container">
+        <center>
+            <br>
+            <h1>Associates:</h1>
+            <br>
+            <div class="row">
+                <div class="col">
+                    
+                    {{#each model.associates as |associate|}}
+                        <h4>
+                            <div><b>{{associate.name}}</b></div>
+                            <div>ID: {{associate.assId}}</div>
+                        </h4>
+                        {{#link-to "associateweekly" associate.assId tagName='button'}}View Reports{{/link-to}}
+                        <br><br>
+                    {{/each}}
+                    
+                </div>
+            </div>
+        </center>
+    </div>
 </div>
 {{/each}}
-
-<p>End batch report.</p>
