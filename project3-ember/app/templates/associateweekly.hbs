@@ -1,11 +1,9 @@
-<ul class="list-group">
-    {{#each model as |report|}}
-    <li class="list-group-item">
-        <div>
-            <div class="container">
-                {{associate-report varData=report}}
-            </div>
-        </div>
-    </li>
-    {{/each}}
-</ul>
+<center>
+{{#each model as |report|}}
+<div>
+    <div class="container">
+        {{associate-report varData=report}}
+    </div>
+</div>
+{{/each}}
+</center>

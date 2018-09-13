@@ -7,11 +7,13 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('batchweekly', {path: '/reports/:idnum'});
-  this.route('associateweekly', {path: '/associates/:assId'});
-  this.route('main-page');
+  this.route('batchweekly', {path: '/batchweekly/:idnum'});
+  this.route('associateweekly', {path: '/associateweekly/:assId'});
   this.route('batchrecent', {path: '/batchrecent'});
   this.route('associaterecent', {path: '/associaterecent'});
+  this.route('redbatches', {path: '/redbatches'});
+  this.route('redassociates', {path: '/redassociates'});
+  this.route('subjectview', {path: '/subjectview'});
 });
 
 export default Router;

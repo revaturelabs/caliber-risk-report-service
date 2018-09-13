@@ -20,6 +20,16 @@ define('ember-project3/tests/app.lint-test', [], function () {
     assert.ok(true, 'adapters/batchweeklyreport.js should pass ESLint\n\n');
   });
 
+  QUnit.test('adapters/redawr.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'adapters/redawr.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('adapters/redbwr.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'adapters/redbwr.js should pass ESLint\n\n');
+  });
+
   QUnit.test('app.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'app.js should pass ESLint\n\n');
@@ -50,6 +60,16 @@ define('ember-project3/tests/app.lint-test', [], function () {
     assert.ok(true, 'models/batchweeklyreport.js should pass ESLint\n\n');
   });
 
+  QUnit.test('models/redawr.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/redawr.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('models/redbwr.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/redbwr.js should pass ESLint\n\n');
+  });
+
   QUnit.test('models/redreport.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'models/redreport.js should pass ESLint\n\n');
@@ -67,7 +87,7 @@ define('ember-project3/tests/app.lint-test', [], function () {
 
   QUnit.test('routes/application.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/application.js should pass ESLint\n\n37:13 - Unexpected console statement. (no-console)');
+    assert.ok(true, 'routes/application.js should pass ESLint\n\n');
   });
 
   QUnit.test('routes/associaterecent.js', function (assert) {
@@ -87,27 +107,37 @@ define('ember-project3/tests/app.lint-test', [], function () {
 
   QUnit.test('routes/batchweekly.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'routes/batchweekly.js should pass ESLint\n\n14:9 - Unexpected console statement. (no-console)\n15:9 - Unexpected console statement. (no-console)\n16:16 - \'RSVP\' is not defined. (no-undef)');
+    assert.ok(false, 'routes/batchweekly.js should pass ESLint\n\n15:9 - Unexpected console statement. (no-console)\n16:9 - Unexpected console statement. (no-console)');
   });
 
-  QUnit.test('routes/index.js', function (assert) {
+  QUnit.test('routes/redreport.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'routes/index.js should pass ESLint\n\n');
+    assert.ok(true, 'routes/redreport.js should pass ESLint\n\n');
   });
 
-  QUnit.test('routes/main-page.js', function (assert) {
+  QUnit.test('routes/subjectview.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'routes/main-page.js should pass ESLint\n\n');
+    assert.ok(true, 'routes/subjectview.js should pass ESLint\n\n');
   });
 
   QUnit.test('serializers/associateweeklyreport.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'serializers/associateweeklyreport.js should pass ESLint\n\n7:9 - Unexpected console statement. (no-console)\n9:9 - Unexpected console statement. (no-console)');
+    assert.ok(false, 'serializers/associateweeklyreport.js should pass ESLint\n\n5:9 - Unexpected console statement. (no-console)\n7:13 - \'obj\' is defined but never used. (no-unused-vars)\n13:9 - Unexpected console statement. (no-console)');
   });
 
   QUnit.test('serializers/batchweeklyreport.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'serializers/batchweeklyreport.js should pass ESLint\n\n7:9 - Unexpected console statement. (no-console)\n9:9 - Unexpected console statement. (no-console)');
+    assert.ok(false, 'serializers/batchweeklyreport.js should pass ESLint\n\n5:9 - Unexpected console statement. (no-console)\n7:13 - \'obj\' is defined but never used. (no-unused-vars)\n13:9 - Unexpected console statement. (no-console)');
+  });
+
+  QUnit.test('serializers/redawr.js', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'serializers/redawr.js should pass ESLint\n\n5:9 - Unexpected console statement. (no-console)\n7:13 - \'obj\' is defined but never used. (no-unused-vars)\n13:9 - Unexpected console statement. (no-console)');
+  });
+
+  QUnit.test('serializers/redbwr.js', function (assert) {
+    assert.expect(1);
+    assert.ok(false, 'serializers/redbwr.js should pass ESLint\n\n5:9 - Unexpected console statement. (no-console)\n7:13 - \'obj\' is defined but never used. (no-unused-vars)\n13:9 - Unexpected console statement. (no-console)');
   });
 });
 define('ember-project3/tests/integration/components/associate-report-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {
@@ -243,16 +273,6 @@ define('ember-project3/tests/tests.lint-test', [], function () {
     assert.expect(1);
     assert.ok(true, 'unit/routes/batchrecent-test.js should pass ESLint\n\n');
   });
-
-  QUnit.test('unit/routes/index-test.js', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/index-test.js should pass ESLint\n\n');
-  });
-
-  QUnit.test('unit/routes/main-page-test.js', function (assert) {
-    assert.expect(1);
-    assert.ok(true, 'unit/routes/main-page-test.js should pass ESLint\n\n');
-  });
 });
 define('ember-project3/tests/unit/models/redreport-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
   'use strict';
@@ -288,30 +308,6 @@ define('ember-project3/tests/unit/routes/batchrecent-test', ['qunit', 'ember-qun
 
     (0, _qunit.test)('it exists', function (assert) {
       let route = this.owner.lookup('route:batchrecent');
-      assert.ok(route);
-    });
-  });
-});
-define('ember-project3/tests/unit/routes/index-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
-  'use strict';
-
-  (0, _qunit.module)('Unit | Route | index', function (hooks) {
-    (0, _emberQunit.setupTest)(hooks);
-
-    (0, _qunit.test)('it exists', function (assert) {
-      let route = this.owner.lookup('route:index');
-      assert.ok(route);
-    });
-  });
-});
-define('ember-project3/tests/unit/routes/main-page-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
-  'use strict';
-
-  (0, _qunit.module)('Unit | Route | main-page', function (hooks) {
-    (0, _emberQunit.setupTest)(hooks);
-
-    (0, _qunit.test)('it exists', function (assert) {
-      let route = this.owner.lookup('route:main-page');
       assert.ok(route);
     });
   });
