@@ -12,13 +12,7 @@ import org.springframework.data.cassandra.core.mapping.Table;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
-<<<<<<< HEAD
  * @author Mark Bedoya, David Martinez
-=======
- * TODO: description
- * 
- * @author TODO: author
->>>>>>> juby
  *
  */
 @JsonRootName(value = "batchweeklyreport")
@@ -244,15 +238,11 @@ public class BatchWeeklyReport {
 				+ ", reporttime=" + reporttime + "]";
 	}
 	
-<<<<<<< HEAD
-	
 	/**
 	 * 
 	 * @author William Scott
 	 * @return
 	 */
-=======
->>>>>>> juby
 	public boolean isRed() {
 		return qcscore <= 40;
 	}

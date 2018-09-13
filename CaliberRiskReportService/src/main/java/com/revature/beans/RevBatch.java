@@ -64,98 +64,23 @@ public class RevBatch {
 	@Column(name="graded_weeks", nullable=true)
 	private int gradedWeeks;
 
-=======
- * TODO: description
- * 
- * @author TODO: author
- *
- */
-@JsonRootName(value = "batch")
-@Entity
-@Table(name = "Caliber_Batch")
-public class RevBatch {
-
-	@Id
-	private Integer batchId;
-
-	@Column(name = "borderline_grade_threshold")
-	private int blgt;
-
-	@Column(name = "end_date")
-	private Date endDate;
-
-	@Column(name = "good_grade_threshold")
-	private int ggt;
-
-	@Column(name = "location")
-	private String location;
-
-	@Column(name = "skill_type")
-	private String skilltype;
-
-	@Column(name = "start_date")
-	private Date startDate;
-
-	@Column(name = "training_name")
-	private String trainingName;
-
-	@Column(name = "training_type")
-	private String trainingType;
-
-	@Column(name = "number_of_weeks")
-	private int numberWeeks;
-
-	@Column(name = "co_trainer_id", nullable = true)
-	private Integer coTrainerId;
-
-	@Column(name = "trainer_id")
-	private Integer trainerId;
-
-	@Column(name = "resource_id", nullable = true)
-	private String resourceId;
-
-	@Column(name = "address_id", nullable = true)
-	private Integer addressId;
-
-	@Column(name = "graded_weeks", nullable = true)
-	private int gradedWeeks;
-
-	/**
-	 * Gets the unique identifier for this batch.
-	 * 
-	 * @return the id of this batch
-	 */
->>>>>>> juby
 	public Integer getBatchId() {
 		return batchId;
 	}
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Sets the unique identifier for this batch.
 	 * 
 	 * @param batchId
 	 */
->>>>>>> juby
 	public void setBatchId(Integer batchId) {
 		this.batchId = batchId;
 	}
 
-	/**
-	 * TODO: I have no idea what this is
-	 * 
-	 * @return TODO: whatever this is
-	 */
 	public int getBlgt() {
 		return blgt;
 	}
 
-	/**
-	 * TODO: Set whatever this is
-	 * 
-	 * @param blgt TODO: the new whatever this is
-	 */
 	public void setBlgt(int blgt) {
 		this.blgt = blgt;
 	}
@@ -215,7 +140,7 @@ public class RevBatch {
 	}
 
 	/**
-	 * Gets the skill type for this batch. TODO: get a more detailed description
+	 * Gets the skill type for this batch.
 	 * 
 	 * @return the skill type for this batch
 	 */
@@ -224,7 +149,7 @@ public class RevBatch {
 	}
 
 	/**
-	 * Sets the skill type for this batch. TODO: get a more detailed description
+	 * Sets the skill type for this batch.
 	 * 
 	 * @param skilltype the skill type for this batch.
 	 */
@@ -250,20 +175,10 @@ public class RevBatch {
 		this.startDate = startDate;
 	}
 
-	/**
-	 * TODO: training name?
-	 * 
-	 * @return TODO: training name?
-	 */
 	public String getTrainingName() {
 		return trainingName;
 	}
 
-	/**
-	 * TODO: training name?
-	 * 
-	 * @param trainingName TODO: training name?
-	 */
 	public void setTrainingName(String trainingName) {
 		this.trainingName = trainingName;
 	}
@@ -340,20 +255,10 @@ public class RevBatch {
 		this.trainerId = trainerId;
 	}
 
-	/**
-	 * TODO: resource id?
-	 * 
-	 * @return TODO: resource id?
-	 */
 	public String getResourceId() {
 		return resourceId;
 	}
 
-	/**
-	 * TODO: resource id?
-	 * 
-	 * @param resourceId TODO: resource id?
-	 */
 	public void setResourceId(String resourceId) {
 		this.resourceId = resourceId;
 	}
@@ -376,25 +281,14 @@ public class RevBatch {
 		this.addressId = addressId;
 	}
 
-	/**
-	 * TODO: not sure what this is
-	 * 
-	 * @return
-	 */
 	public int getGradedWeeks() {
 		return gradedWeeks;
 	}
 
-	/**
-	 * TODO: not sure what this is
-	 * 
-	 * @param gradedWeeks
-	 */
 	public void setGradedWeeks(int gradedWeeks) {
 		this.gradedWeeks = gradedWeeks;
 	}
-<<<<<<< HEAD
-
+	
 	@Override
 	public String toString() {
 		return "RevBatch [batchId=" + batchId + ", blgt=" + blgt + ", endDate=" + endDate + ", ggt=" + ggt
@@ -406,16 +300,4 @@ public class RevBatch {
 		
 	
 }
-=======
->>>>>>> juby
 
-	@Override
-	public String toString() {
-		return "RevBatch [batchId=" + batchId + ", blgt=" + blgt + ", endDate=" + endDate + ", ggt=" + ggt
-				+ ", location=" + location + ", skilltype=" + skilltype + ", startDate=" + startDate + ", trainingName="
-				+ trainingName + ", trainingType=" + trainingType + ", numberWeeks=" + numberWeeks + ", coTrainerId="
-				+ coTrainerId + ", trainerId=" + trainerId + ", resourceId=" + resourceId + ", addressId=" + addressId
-				+ ", gradedWeeks=" + gradedWeeks + "]";
-	}
-
-}

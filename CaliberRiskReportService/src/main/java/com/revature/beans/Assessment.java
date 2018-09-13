@@ -8,13 +8,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
-<<<<<<< HEAD
  * @author Mark Bedoya, David Martinez
-=======
- * TODO: class description
- * @author TODO: author
->>>>>>> juby
- *
  */
 @JsonRootName(value="assessment")
 @Entity
@@ -43,26 +37,20 @@ public class Assessment {
 	@Column(name="Assessment_category")
 	private int category;
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Gets the unique identifier for this Assessment
 	 * 
 	 * @return the id
 	 */
->>>>>>> juby
 	public Integer getAssessmentId() {
 		return assessmentId;
 	}
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Sets the unique identifier for this Assessment
 	 * 
 	 * @param assessmentId the new id
 	 */
->>>>>>> juby
 	public void setAssessmentId(Integer assessmentId) {
 		this.assessmentId = assessmentId;
 	}

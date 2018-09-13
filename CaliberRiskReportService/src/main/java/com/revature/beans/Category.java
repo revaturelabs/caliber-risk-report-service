@@ -8,28 +8,7 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
-<<<<<<< HEAD
  * @author Mark Bedoya, David Martinez
- *
- */
-@JsonRootName(value="category")
-@Entity
-@Table(name="Caliber_category")
-public class Category {
-	
-	@Id
-	@Column(name="category_id")
-	private Integer categoryId;
-	
-	@Column(name="skill_category")
-	private String skillCategory;
-	
-	@Column(name="is_active")
-	private boolean active;
-
-=======
- * TODO: class description
- * @author TODO: author
  *
  */
 @JsonRootName(value = "category")
@@ -52,37 +31,23 @@ public class Category {
 	 * 
 	 * @return the id
 	 */
->>>>>>> juby
 	public Integer getCategoryId() {
 		return categoryId;
 	}
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Sets the unique identifier for this Category
 	 * 
 	 * @param categoryId the new id for this Category
 	 */
->>>>>>> juby
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 
-	/**
-	 * TODO: add method description
-	 * 
-	 * @return TODO: add method return description
-	 */
 	public String getSkillCategory() {
 		return skillCategory;
 	}
 
-	/**
-	 * TODO: add method description
-	 * 
-	 * @param skillCategory TODO: add method parameter description
-	 */
 	public void setSkillCategory(String skillCategory) {
 		this.skillCategory = skillCategory;
 	}

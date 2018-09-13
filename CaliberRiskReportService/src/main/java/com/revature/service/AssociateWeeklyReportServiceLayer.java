@@ -1,21 +1,15 @@
 package com.revature.service;
 
-<<<<<<< HEAD
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-=======
-import java.util.List;
 import java.util.UUID;
 
->>>>>>> juby
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.beans.AssociateWeeklyReport;
 import com.revature.repository.AssociateWeeklyReportRepository;
-
-<<<<<<< HEAD
 
 /**
  * @author David Martinez
@@ -122,27 +116,4 @@ public class AssociateWeeklyReportServiceLayer {
 		generatorService.generateReports(new int[]{1});
 		return awrr.findAll();
 	}
-=======
-@Service
-public class AssociateWeeklyReportServiceLayer {
-	
-	@Autowired
-	private AssociateWeeklyReportRepository awrr;
-
-	public AssociateWeeklyReportServiceLayer(AssociateWeeklyReportRepository awrr) {
-		this.awrr = awrr;
-	}
-
-	public void setAwrr(AssociateWeeklyReportRepository awrr) {
-		this.awrr = awrr;
-	}
-	
-	public List<AssociateWeeklyReport> getAll() {
-		return awrr.findAll();
-	}
-	
-	public List<AssociateWeeklyReport> getAllbyId(Integer id) {
-		return awrr.findByassId(id);
-	}
->>>>>>> juby
 }

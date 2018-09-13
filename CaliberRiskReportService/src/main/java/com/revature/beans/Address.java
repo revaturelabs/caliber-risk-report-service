@@ -2,8 +2,6 @@ package com.revature.beans;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
-<<<<<<< HEAD
-
 /**
  * @author Mark Bedoya, David Martinez
  *
@@ -13,19 +11,6 @@ public class Address {
 	
 	private Integer addressId;
 	
-=======
-/**
- * TODO: class description
- * 
- * @author TODO: author
- *
- */
-@JsonRootName(value = "address")
-public class Address {
-
-	private Integer addressId;
-
->>>>>>> juby
 	private String addressStreet;
 
 	private String addressCity;
@@ -38,27 +23,20 @@ public class Address {
 
 	private boolean active;
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Gets the unique identifier for this Address
 	 * 
 	 * @return the id of this Address
 	 */
->>>>>>> juby
 	public Integer getAddressId() {
 		return addressId;
 	}
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Sets the unique identifier for this Address
 	 * 
 	 * @param addressId the id of this Address
 	 */
-
->>>>>>> juby
 	public void setAddressId(Integer addressId) {
 		this.addressId = addressId;
 	}

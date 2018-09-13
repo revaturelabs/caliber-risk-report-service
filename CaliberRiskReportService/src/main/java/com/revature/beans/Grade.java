@@ -10,35 +10,8 @@ import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
-<<<<<<< HEAD
  * @author Mark Bedoya, David Martinez
  *
- */
-@JsonRootName(value="grade")
-@Entity
-@Table(name="Caliber_grade")
-public class Grade {
-	
-	@Id
-	@Column(name="grade_id")
-	private Integer gradeId;
-	
-	@Column(name="Date_received")
-	private Date date;
-	
-	@Column(name="score")
-	private int score;
-	
-	@Column(name="Assessment_id")
-	private int assessmentId;
-	
-	@Column(name="trainee_id")
-	private int traineeId;
-
-=======
- * TODO: add class description
- * 
- * @author TODO: add author for class
  */
 @JsonRootName(value = "grade")
 @Entity
@@ -66,19 +39,15 @@ public class Grade {
 	 * 
 	 * @return the id for this Grade
 	 */
->>>>>>> juby
 	public Integer getGradeId() {
 		return gradeId;
 	}
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Sets the unique identifier for this Grade
 	 * 
 	 * @param gradeId the new id for this Grade
 	 */
->>>>>>> juby
 	public void setGradeId(Integer gradeId) {
 		this.gradeId = gradeId;
 	}

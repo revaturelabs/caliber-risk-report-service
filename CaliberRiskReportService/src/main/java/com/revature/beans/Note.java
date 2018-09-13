@@ -45,63 +45,20 @@ public class Note {
 	@Column(name="trainee_id")
 	private int traineeId;
 
-=======
- * TODO: description
- * 
- * @author TODO: author
- *
- */
-@JsonRootName(value = "note")
-@Entity
-@Table(name = "Caliber_note")
-public class Note {
-
-	@Id
-	@Column(name = "Note_id")
-	private Integer noteId;
-
-	@Column(name = "Note_content")
-	private String noteContent;
-
-	@Column(name = "max_visibility")
-	private int visibility;
-
-	@Column(name = "is_qc_feedback")
-	private boolean qcFeedback;
-
-	@Column(name = "qc_status")
-	private int qcStatus;
-
-	@Column(name = "note_type")
-	private String noteType;
-
-	@Column(name = "week_number")
-	private int weekNumber;
-
-	@Column(name = "batch_id")
-	private int batchId;
-
-	@Column(name = "trainee_id")
-	private int traineeId;
-
 	/**
 	 * Gets the unique identifier associated with this Note
 	 * 
 	 * @return the id of this Note
 	 */
->>>>>>> juby
 	public Integer getNoteId() {
 		return noteId;
 	}
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Sets the unique identifier associate with this Note
 	 * 
 	 * @param noteId the new id of this Note
 	 */
->>>>>>> juby
 	public void setNoteId(Integer noteId) {
 		this.noteId = noteId;
 	}
@@ -124,20 +81,10 @@ public class Note {
 		this.noteContent = noteContent;
 	}
 
-	/**
-	 * TODO: what is visibility?
-	 * 
-	 * @return
-	 */
 	public int getVisibility() {
 		return visibility;
 	}
 
-	/**
-	 * TODO: what is visibility?
-	 * 
-	 * @param visibility
-	 */
 	public void setVisibility(int visibility) {
 		this.visibility = visibility;
 	}
@@ -162,20 +109,10 @@ public class Note {
 		this.qcFeedback = qcFeedback;
 	}
 
-	/**
-	 * TODO: what is QC status?
-	 * 
-	 * @return
-	 */
 	public int getQcStatus() {
 		return qcStatus;
 	}
 
-	/**
-	 * TODO: what is QC status?
-	 * 
-	 * @param qcStatus
-	 */
 	public void setQcStatus(int qcStatus) {
 		this.qcStatus = qcStatus;
 	}

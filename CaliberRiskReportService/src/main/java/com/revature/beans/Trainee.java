@@ -9,7 +9,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 /**
-<<<<<<< HEAD
  * @author Mark Bedoya, David Martinez
  *
  */
@@ -73,92 +72,22 @@ public class Trainee {
 	
 	@Column(name="tech_screen_score")
 	private Integer techScreenScore;
-
-=======
- * TODO: description
- * 
- * @author TODO: author
- *
- */
-@JsonRootName(value = "trainee")
-@JsonIgnoreProperties(ignoreUnknown = true)
-@Entity
-@Table(name = "Caliber_Trainee")
-public class Trainee {
-
-	@Id
-	@Column(name = "trainee_id")
-	private Integer traineeId;
-
-	@Column(name = "trainee_email")
-	private String traineeEmail;
-
-	@Column(name = "trainee_name")
-	private String traineeName;
-
-	@Column(name = "training_status")
-	private String trainingStatus;
-
-	@Column(name = "batch_id")
-	private Integer batchId;
-
-	@Column(name = "phone_number")
-	private String phoneNumber;
-
-	@Column(name = "profile_url")
-	private String profileUrl;
-
-	@Column(name = "skype_id")
-	private String skypeId;
-
-	@Column(name = "Resource_id")
-	private String resourceId;
-
-	@Column(name = "recruiter_name")
-	private String recruiterName;
-
-	@Column(name = "college")
-	private String college;
-
-	@Column(name = "degree")
-	private String degree;
-
-	@Column(name = "major")
-	private String major;
-
-	@Column(name = "tech_screener_name")
-	private String techScreenerName;
-
-	@Column(name = "revpro_project_completion")
-	private Integer revproProjectCompletion;
-
-	@Column(name = "flag_notes")
-	private String flagNotes;
-
-	@Column(name = "flag_status")
-	private String flagStatus;
-
-	@Column(name = "tech_screen_score")
-	private Integer techScreenScore;
-
+	
 	/**
 	 * Gets the unique identifier for this Trainee
 	 * 
 	 * @return the id of this Trainee
 	 */
->>>>>>> juby
+
 	public Integer getTraineeId() {
 		return traineeId;
 	}
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Sets the unique identifier for this Trainee
 	 * 
 	 * @param traineeId the new id of this Trainee
 	 */
->>>>>>> juby
 	public void setTraineeId(Integer traineeId) {
 		this.traineeId = traineeId;
 	}
@@ -199,20 +128,10 @@ public class Trainee {
 		this.traineeName = traineeName;
 	}
 
-	/**
-	 * TODO: what exactly is status?
-	 * 
-	 * @return
-	 */
 	public String getTrainingStatus() {
 		return trainingStatus;
 	}
 
-	/**
-	 * TODO: what exactly is status?
-	 * 
-	 * @param trainingStatus
-	 */
 	public void setTrainingStatus(String trainingStatus) {
 		this.trainingStatus = trainingStatus;
 	}
@@ -290,20 +209,10 @@ public class Trainee {
 		this.skypeId = skypeId;
 	}
 
-	/**
-	 * TODO: resource id?
-	 * 
-	 * @return
-	 */
 	public String getResourceId() {
 		return resourceId;
 	}
 
-	/**
-	 * TODO: resource id?
-	 * 
-	 * @param resourceId
-	 */
 	public void setResourceId(String resourceId) {
 		this.resourceId = resourceId;
 	}
@@ -398,70 +307,37 @@ public class Trainee {
 		this.techScreenerName = techScreenerName;
 	}
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Get whether the RevaturePro project is completed
 	 * 
 	 * @return true if the project is completed, false otherwise
 	 */
->>>>>>> juby
+
 	public Integer isRevproProjectCompletion() {
 		return revproProjectCompletion;
 	}
 
-<<<<<<< HEAD
-=======
 	/**
 	 * Set whether the RevaturePro project is completed
 	 * 
-	 * @param revproProjectCompletion true if the project is completed, false
-	 *                                otherwise
+	 * @param revproProjectCompletion true if the project is completed
 	 */
->>>>>>> juby
 	public void setRevproProjectCompletion(Integer revproProjectCompletion) {
 		this.revproProjectCompletion = revproProjectCompletion;
 	}
 
-	/**
-	 * TODO: flag notes?
-	 * 
-	 * @return
-	 */
 	public String getFlagNotes() {
 		return flagNotes;
 	}
 
-	/**
-	 * TODO: flag notes?
-	 * 
-	 * @param flagNotes
-	 */
 	public void setFlagNotes(String flagNotes) {
 		this.flagNotes = flagNotes;
 	}
 
-<<<<<<< HEAD
 	public String getFlagStatus() {
 		return flagStatus;
 	}
 
-=======
-	/**
-	 * TODO: flag status?
-	 * 
-	 * @return
-	 */
-	public String isFlagStatus() {
-		return flagStatus;
-	}
-
-	/**
-	 * TODO: flag status?
-	 * 
-	 * @param flagStatus
-	 */
->>>>>>> juby
 	public void setFlagStatus(String flagStatus) {
 		this.flagStatus = flagStatus;
 	}
