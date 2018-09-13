@@ -1,0 +1,13 @@
+
+<center><h1>Red Associate Reports</h1>
+
+{{#each model.associates as |report|}}
+<div>
+    <h5><div><b>Name:</b>{{report.name}}</div>
+    <div><b>ID:</b>{{report.assId}}</div>
+    <div><b>Report time:</b>{{report.reporttime}}</div></h5>
+    {{#link-to "associateweekly" report.assId (query-params categoryname=report.categoryname reporttime=report.reporttime) tagName='button'}}View Report{{/link-to}}
+    <br><br>
+</div>
+{{/each}}
+</center>
