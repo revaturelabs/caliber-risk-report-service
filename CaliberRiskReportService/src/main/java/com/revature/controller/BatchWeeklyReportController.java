@@ -49,6 +49,7 @@ public class BatchWeeklyReportController {
     	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.doAll();
     	return ResponseEntity.ok(bwr);
     }
+<<<<<<< HEAD
     
     @GetMapping("/red/batches")
     public ResponseEntity<List<BatchWeeklyReport>> getReds() {
@@ -61,4 +62,6 @@ public class BatchWeeklyReportController {
     	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.getCategoriesWithTooManyReds();
     	return ResponseEntity.ok(bwr);
     }
+=======
+>>>>>>> juby
 }

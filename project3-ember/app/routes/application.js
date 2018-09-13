@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
 * The Application adapter makes a test that takes the batch ID as a parameter, the make
 * test method then sets the attributes for the bathID parameter.
@@ -7,6 +8,8 @@
 * @param {number} batchID A number that represents the batch ID.
 */
 
+=======
+>>>>>>> juby
 import Route from '@ember/routing/route';
 
 export default Route.extend({
@@ -46,4 +49,8 @@ export default Route.extend({
             console.log("created a test report")
         }
     }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> juby

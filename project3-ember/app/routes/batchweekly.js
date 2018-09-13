@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
 * The batch weekly route makes a model that returns the primary key of the batch reports.
 *
@@ -7,6 +8,8 @@
 * returned.
 */
 
+=======
+>>>>>>> juby
 import Route from '@ember/routing/route';
 
 export default Route.extend({
@@ -17,4 +20,8 @@ export default Route.extend({
             }
         }))
     }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> juby

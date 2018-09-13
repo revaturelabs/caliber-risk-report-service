@@ -28,6 +28,7 @@ import com.revature.repository.RevBatchRepository;
 import com.revature.repository.TraineeRepository;
 import com.revature.repository.TrainerRepository;
 
+<<<<<<< HEAD
 
 /**
  * Generator Service used for generating data objects 
@@ -37,6 +38,8 @@ import com.revature.repository.TrainerRepository;
  * @author Kyle Butterfield, David Martinez
  *
  */
+=======
+>>>>>>> juby
 @Service
 public class GeneratorService {
 	
@@ -67,6 +70,7 @@ public class GeneratorService {
 	@Autowired
 	TrainerRepository trr;
 	
+<<<<<<< HEAD
 	/**
 	 * TBI - The way to stop automatic generation
 	 * from happening.
@@ -92,12 +96,16 @@ public class GeneratorService {
 	 * @param args	integer array to specify which case to follow, one per batch or associate
 	 */
 	public void generateReports(int[] args) {
+=======
+	public void generateBatchWeekly() {
+>>>>>>> juby
 		List<RevBatch> batches = rbr.findAll();
 		List<Assessment> assessments = ar.findAll();
 		List<Category> categories = cr.findAll();
 		List<Grade> grades = gr.findAll();
 		List<Trainee> trainees = tr.findAll();
 		List<Trainer> trainers = trr.findAll();
+<<<<<<< HEAD
 		for (int i = 0; i < args.length; i++) {
 			switch (args[i]) {
 			case(0): generateBatchWeekly(batches, assessments, categories, grades, trainees, trainers); break;
@@ -119,6 +127,8 @@ public class GeneratorService {
 	 * @param trainers
 	 */
 	public void generateBatchWeekly(List<RevBatch> batches, List<Assessment> assessments, List<Category> categories, List<Grade> grades, List<Trainee> trainees, List<Trainer> trainers) {
+=======
+>>>>>>> juby
 		for (RevBatch batch : batches) {
 			//get associates in batch
 			List<Trainee> batchass = new ArrayList<>();
@@ -130,7 +140,14 @@ public class GeneratorService {
 			
 			//loop through assessments
 			for (Assessment ass : assessments) {
+<<<<<<< HEAD
 				if (ass.getBatchId() != batch.getBatchId() || !ass.getType().equals("Verbal")) {
+=======
+				if (ass.getBatchId() != batch.getBatchId()) {
+					continue;
+				}
+				if (!ass.getType().equals("Verbal")) {
+>>>>>>> juby
 					continue;
 				}
 				BatchWeeklyReport report = new BatchWeeklyReport();
@@ -146,6 +163,7 @@ public class GeneratorService {
 						assgrades.add(temp);
 					}
 				}
+<<<<<<< HEAD
 				
 				/*
 				 * Used for associate quality control reports
@@ -153,6 +171,8 @@ public class GeneratorService {
 				 * randomly generated numbers because we don't
 				 * have associate's QC reports on record yet.
 				 */
+=======
+>>>>>>> juby
 				Integer qcgreen = 0;
 				Integer qcyellow = 0;
 				Integer qcred = 0;
@@ -214,6 +234,7 @@ public class GeneratorService {
 		}
 	}
 	
+<<<<<<< HEAD
 	/**
 	 * Generate the actual report for an Associate with 
 	 * given parameters from GenerateReports.  Takes
@@ -274,5 +295,9 @@ public class GeneratorService {
 				awrr.save(awr);
 			}
 		}
+=======
+	public List<AssociateWeeklyReport> generateAssociateWeekly() {
+		return null;
+>>>>>>> juby
 	}
 }

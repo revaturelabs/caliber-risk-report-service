@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
 * This is a description of the associate weekly report adapter
 *
@@ -7,6 +8,8 @@
 */
 
 
+=======
+>>>>>>> juby
 import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({

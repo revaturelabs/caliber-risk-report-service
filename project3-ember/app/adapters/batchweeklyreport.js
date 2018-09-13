@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
 * This is a description of the associate weekly report adapter
 *
@@ -6,10 +7,16 @@
 * controller as a list of objects.
 */
 
+=======
+>>>>>>> juby
 import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
     pathForType() {
         return 'reports'
     }
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> juby

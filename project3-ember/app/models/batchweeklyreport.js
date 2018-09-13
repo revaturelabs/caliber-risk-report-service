@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
 * This is a description of the associate weekly report model
 *
@@ -23,6 +24,8 @@
 */
 
 
+=======
+>>>>>>> juby
 import DS from 'ember-data';
 
 export default DS.Model.extend({
@@ -45,4 +48,8 @@ export default DS.Model.extend({
     currweek: DS.attr('number'),
     categoryname: DS.attr('string'),
     reporttime: DS.attr('date')
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> juby

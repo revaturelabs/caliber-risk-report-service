@@ -44,6 +44,7 @@ public class BatchWeeklyReportServiceLayer {
     	return batchWeeklyReportRepository.findAll();
     }
     
+<<<<<<< HEAD
     /**
      * Fetches batch reports using getReports() and
      * calculates reports that have "too many reds"
@@ -55,6 +56,9 @@ public class BatchWeeklyReportServiceLayer {
 	 * @return result	ArrayList of every report that has too many reds
 	 */
     public List<BatchWeeklyReport> getReportsWithTooManyReds() {
+=======
+    public List<BatchWeeklyReport> getReportsWithConsecutiveReds() {
+>>>>>>> juby
     	List<BatchWeeklyReport> result = new ArrayList<>();
     	HashMap<Integer, List<BatchWeeklyReport>> map = new HashMap<>();
     	
@@ -76,6 +80,7 @@ public class BatchWeeklyReportServiceLayer {
     	return result;
     }
     
+<<<<<<< HEAD
     /**
      * Fetches batch reports using getReports() and
      * calculates reports that have "too many reds"
@@ -107,6 +112,8 @@ public class BatchWeeklyReportServiceLayer {
     	return result;
     }
     
+=======
+>>>>>>> juby
     /*
     private boolean hasConsecutiveReds(List<BatchWeeklyReport> reports) {
     	boolean prevIsRed = false;
@@ -120,6 +127,7 @@ public class BatchWeeklyReportServiceLayer {
     }
     */
     
+<<<<<<< HEAD
     /**
 	 * Calculates whether a batch report has a red
 	 * percentile over 40%
@@ -128,12 +136,15 @@ public class BatchWeeklyReportServiceLayer {
 	 * @author William Scott
 	 * @return boolean	Whether or not a report contains 40% reds or more.
 	 */
+=======
+>>>>>>> juby
     private boolean hasTooManyReds(List<BatchWeeklyReport> reports) {
     	int redCount = 0;
     	for (BatchWeeklyReport r: reports) {
     		if (r.isRed()) redCount++;
     	}
     	float redDensity = ((float) redCount)/((float) reports.size());
+<<<<<<< HEAD
     	//if 4 out of every 10 are red
     	return redDensity >= .4;
     }
@@ -146,6 +157,13 @@ public class BatchWeeklyReportServiceLayer {
      */
     public List<BatchWeeklyReport> doAll() {
     	generatorService.generateReports(new int[]{0});
+=======
+    	return redDensity >= .4;
+    }
+    
+    public List<BatchWeeklyReport> doAll() {
+    	generatorService.generateBatchWeekly();
+>>>>>>> juby
     	return batchWeeklyReportRepository.findAll();
     }
 }

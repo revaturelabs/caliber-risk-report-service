@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
 * The associate weekly route makes a model that returns all of the associate weekly
 * reports.
@@ -10,6 +11,8 @@
 */
 
 
+=======
+>>>>>>> juby
 import Route from '@ember/routing/route';
 
 export default Route.extend({

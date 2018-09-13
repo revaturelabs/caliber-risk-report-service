@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
 * The associate weekly report serializer uses the normalizeResponse method to normalize a
 * associate weekly report payload from the server to a JSON-API Document.
@@ -14,16 +15,26 @@
 * @return {Object} Returns a JSON-API Document.
 */
 
+=======
+>>>>>>> juby
 import DS from 'ember-data';
 
 export default DS.RESTSerializer.extend({
     primaryKey: 'assId',
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> juby
     normalizeResponse(store, primaryModelClass, payload, id, requestType) {
         console.log(payload);
         payload = {'associateweeklyreport': payload };
         console.log(payload);
         return this._super(store, primaryModelClass, payload, id, requestType);
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> juby
     }
 });

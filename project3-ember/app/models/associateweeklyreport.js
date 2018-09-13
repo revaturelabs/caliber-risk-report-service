@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /**
 * This is a description of the associate weekly report model
 *
@@ -17,6 +18,8 @@
 * @property {reporttime} Sets the expected report time datatype to a date.
 */
 
+=======
+>>>>>>> juby
 import DS from 'ember-data';
 
 export default DS.Model.extend({
