@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.revature.beans.AssociateWeeklyReport;
 import com.revature.service.AssociateWeeklyReportServiceLayer;
 
+/**
+ * @author Mark Bedoya, David Martinez
+ *
+ */
 @CrossOrigin
 @RestController
 public class AssociateWeeklyReportController {
@@ -32,6 +36,18 @@ public class AssociateWeeklyReportController {
 	@GetMapping(value="/associates/{id}")
 	public ResponseEntity<List<AssociateWeeklyReport>> getAllbyId(@PathVariable("id") Integer id) {
 		List<AssociateWeeklyReport> reports = awrsl.getAllbyId(id);
+		return ResponseEntity.ok(reports);
+	}
+	
+	@GetMapping(value="/adoall")
+	public ResponseEntity<List<AssociateWeeklyReport>> doAll() {
+		List<AssociateWeeklyReport> reports = awrsl.doAll();
+		return ResponseEntity.ok(reports);
+	}
+	
+	@GetMapping(value="/red/associates")
+	public ResponseEntity<List<AssociateWeeklyReport>> getReds() {
+		List<AssociateWeeklyReport> reports = awrsl.getReportsWithToManyReds();
 		return ResponseEntity.ok(reports);
 	}
 }

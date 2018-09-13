@@ -11,6 +11,11 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+
+/**
+ * @author David Martinez
+ *
+ */
 @Configuration
 public class MvcConfig extends WebMvcConfigurationSupport {
 	

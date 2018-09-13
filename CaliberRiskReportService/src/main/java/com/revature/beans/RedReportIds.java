@@ -8,6 +8,10 @@ import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+/**
+ * @author Mark Bedoya, David Martinez
+ *
+ */
 @Table
 public class RedReportIds {
 	@Column("Associate_ids")

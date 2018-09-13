@@ -9,6 +9,10 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
+/**
+ * @author Mark Bedoya, David Martinez
+ *
+ */
 @JsonRootName(value="batch")
 @Entity
 @Table(name="Caliber_Batch")

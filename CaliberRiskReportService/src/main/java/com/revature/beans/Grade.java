@@ -9,16 +9,20 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
+/**
+ * @author Mark Bedoya, David Martinez
+ *
+ */
 @JsonRootName(value="grade")
 @Entity
-@Table
+@Table(name="Caliber_grade")
 public class Grade {
 	
 	@Id
 	@Column(name="grade_id")
 	private Integer gradeId;
 	
-	@Column(name="Date_recieved")
+	@Column(name="Date_received")
 	private Date date;
 	
 	@Column(name="score")

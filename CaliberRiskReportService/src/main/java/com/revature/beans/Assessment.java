@@ -7,9 +7,13 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
+/**
+ * @author Mark Bedoya, David Martinez
+ *
+ */
 @JsonRootName(value="assessment")
 @Entity
-@Table
+@Table(name="Caliber_assessment")
 public class Assessment {
 	
 	@Id

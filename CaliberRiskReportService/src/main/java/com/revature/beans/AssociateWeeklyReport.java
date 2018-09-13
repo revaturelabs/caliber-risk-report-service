@@ -6,6 +6,10 @@ import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
+/**
+ * @author Mark Bedoya, David Martinez
+ *
+ */
 @Table
 public class AssociateWeeklyReport {
 	
@@ -160,5 +164,12 @@ public class AssociateWeeklyReport {
 				+ ", reporttime=" + reporttime + "]";
 	}
 	
-	
+	/**
+	 * 
+	 * @author William Scott
+	 * @return
+	 */
+	public boolean isRed() {
+		return qcscore <= 40;
+	}
 }

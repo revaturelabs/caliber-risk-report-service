@@ -2,6 +2,11 @@ package com.revature.beans;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
+
+/**
+ * @author Mark Bedoya, David Martinez
+ *
+ */
 @JsonRootName(value="address")
 public class Address {
 	
