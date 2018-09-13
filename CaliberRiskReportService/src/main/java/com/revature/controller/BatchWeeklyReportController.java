@@ -6,6 +6,7 @@
 package com.revature.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -34,31 +35,13 @@ public class BatchWeeklyReportController {
     }
     
     @GetMapping("/reports/{id}")
-    public ResponseEntity<List<BatchWeeklyReport>> getAllReports(@PathVariable("id") Integer idnum) {
+    public ResponseEntity<List<BatchWeeklyReport>> getAllReports(@PathVariable("id") UUID idnum) {
         return ResponseEntity.ok(batchWeeklyReportServiceLayer.getAllReports(idnum));
     }
     
     @GetMapping("/reports")
     public ResponseEntity<List<BatchWeeklyReport>> getReports() {
     	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.getReports();
-    	return ResponseEntity.ok(bwr);
-    }
-    
-    @GetMapping("/doall")
-    public ResponseEntity<List<BatchWeeklyReport>> doAll() {
-    	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.doAll();
-    	return ResponseEntity.ok(bwr);
-    }
-    
-    @GetMapping("/red/batches")
-    public ResponseEntity<List<BatchWeeklyReport>> getReds() {
-    	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.getReportsWithTooManyReds();
-    	return ResponseEntity.ok(bwr);
-    }
-    
-    @GetMapping("/red/weeks")
-    public ResponseEntity<List<BatchWeeklyReport>> getRedWeeks() {
-    	List<BatchWeeklyReport> bwr = batchWeeklyReportServiceLayer.getCategoriesWithTooManyReds();
     	return ResponseEntity.ok(bwr);
     }
 }

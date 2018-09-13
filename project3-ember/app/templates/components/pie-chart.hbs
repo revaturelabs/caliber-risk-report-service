@@ -1,8 +1,8 @@
 <center><h1>Week 10</h1></center>
 <br>
 <h4>             
-    <b>Batch ID:</b> {{varData.idnum}}<br>
-    <b>Batch Name:</b> {{varData.batchName}}<br>
+    <b>Batch ID:</b> {{varData.batch_id}}<br>
+    <b>Batch Name:</b> {{varData.batch_name}}<br>
     <b>Trainer:</b> {{varData.trainer}}<br>
 </h4> 
 <br>
@@ -14,13 +14,13 @@
             <h1>QC Result</h1>
             <canvas id="QCChart" width="400" height="400"></canvas>
             <br>
-            <h3>QC Score: {{varData.qcscore}}</h3>
+            <h3>QC Score: {{varData.qc_score}}</h3>
         </div>
         <div class="col">
             <h1>Survey Result</h1>
             <canvas id="SurveyChart" width="400" height="400"></canvas>
             <br>
-            <h3>Survey Score: {{varData.survscore}}</h3>
+            <h3>Survey Score: {{varData.survey_score}}</h3>
         </div>
     </div>
     </center>
@@ -29,12 +29,13 @@
     <div class="row">
         <div class="col">
             <h4>
+                <b>Associate:</b> {{!--List of numbers?--}}<br>
                 <b>Location:</b> {{varData.location}}<br>
                 <b>Skill Type:</b> {{varData.skilltype}}<br>
-                <b>End Date:</b> {{varData.enddate}}<br>
+                <b>End Date:</b> {{varData.end_date}}<br>
                 <b>Weeks:</b> {{varData.weeks}}<br>
-                <b>Category:</b> {{varData.categoryname}}<br>
-                <b>Report Time:</b> {{varData.reporttime}}<br>               
+                <b>Category:</b> {{varData.category_name}}<br>
+                <b>Report Time:</b> {{varData.report_time}}<br>               
             </h4>
         </div>
         <div class="col">
@@ -43,13 +44,13 @@
     </div>    
 </div>
 
-<input type="hidden" id="qcR" value={{varData.qcred}} />
-<input type="hidden" id="qcG" value={{varData.qcgreens}} />
-<input type="hidden" id="qcY" value={{varData.qcyellow}} />
+<input type="hidden" id="qcR" value={{varData.qc_count_red}} />
+<input type="hidden" id="qcG" value={{varData.qc_count_green}} />
+<input type="hidden" id="qcY" value={{varData.qc_count_yellow}} />
 
-<input type="hidden" id="svR" value={{varData.survred}} />
-<input type="hidden" id="svG" value={{varData.survgreen}} />
-<input type="hidden" id="svY" value={{varData.survyellow}} />
+<input type="hidden" id="svR" value={{varData.survey_count_red}} />
+<input type="hidden" id="svG" value={{varData.survey_count_green}} />
+<input type="hidden" id="svY" value={{varData.survey_count_yellow}} />
 
 <script>
 var ctx = document.getElementById("QCChart").getContext('2d');
