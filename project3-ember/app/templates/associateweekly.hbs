@@ -1,0 +1,9 @@
+<p>This is the weekly associate report.</p>
+
+{{#each model as |report|}}
+<div>
+    <div class="container">
+        {{pie-chart varData=report}}
+    </div>
+</div>
+{{/each}}

@@ -1,28 +1,40 @@
 package com.revature.beans;
 
 import java.util.Date;
-import java.util.UUID;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="grade")
+@Entity
+@Table(name="Caliber_grade")
 public class Grade {
 	
-	private UUID gradeId;
+	@Id
+	@Column(name="grade_id")
+	private Integer gradeId;
 	
+	@Column(name="Date_received")
 	private Date date;
 	
+	@Column(name="score")
 	private int score;
 	
+	@Column(name="Assessment_id")
 	private int assessmentId;
 	
+	@Column(name="trainee_id")
 	private int traineeId;
 
-	public UUID getGradeId() {
+	public Integer getGradeId() {
 		return gradeId;
 	}
 
-	public void setGradeId(UUID gradeId) {
+	public void setGradeId(Integer gradeId) {
 		this.gradeId = gradeId;
 	}
 
