@@ -1,11 +1,13 @@
 package com.revature.beans;
 
+import java.util.UUID;
+
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="address")
 public class Address {
 	
-	private Integer addressId;
+	private UUID addressId;
 	
 	private String addressStreet;
 	
@@ -19,11 +21,11 @@ public class Address {
 	
 	private boolean active;
 
-	public Integer getAddressId() {
+	public UUID getAddressId() {
 		return addressId;
 	}
 
-	public void setAddressId(Integer addressId) {
+	public void setAddressId(UUID addressId) {
 		this.addressId = addressId;
 	}
 

@@ -10,9 +10,9 @@ define('ember-project3/tests/app.lint-test', [], function () {
     assert.ok(true, 'adapters/application.js should pass ESLint\n\n');
   });
 
-  QUnit.test('adapters/batchweeklyreport.js', function (assert) {
+  QUnit.test('adapters/batchweekly.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'adapters/batchweeklyreport.js should pass ESLint\n\n');
+    assert.ok(true, 'adapters/batchweekly.js should pass ESLint\n\n');
   });
 
   QUnit.test('app.js', function (assert) {
@@ -55,9 +55,9 @@ define('ember-project3/tests/app.lint-test', [], function () {
     assert.ok(true, 'routes/batchweekly.js should pass ESLint\n\n');
   });
 
-  QUnit.test('serializers/batchweeklyreport.js', function (assert) {
+  QUnit.test('serializers/batchweekly.js', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'serializers/batchweeklyreport.js should pass ESLint\n\n7:9 - Unexpected console statement. (no-console)\n9:9 - Unexpected console statement. (no-console)');
+    assert.ok(false, 'serializers/batchweekly.js should pass ESLint\n\n7:9 - Unexpected console statement. (no-console)\n9:9 - Unexpected console statement. (no-console)');
   });
 });
 define('ember-project3/tests/integration/components/nav-bar-test', ['qunit', 'ember-qunit', '@ember/test-helpers'], function (_qunit, _emberQunit, _testHelpers) {

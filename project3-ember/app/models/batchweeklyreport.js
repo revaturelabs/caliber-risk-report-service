@@ -1,23 +1,23 @@
 import DS from 'ember-data';
 
 export default DS.Model.extend({
-    idnum: DS.attr('number'),
-    batchName: DS.attr('string'),
-    qcgreens: DS.attr('number'),
-    qcyellow: DS.attr('number'),
-    qcred: DS.attr('number'),
-    qcscore: DS.attr('number'),
-    survgreen: DS.attr('number'),
-    survyellow: DS.attr('number'),
-    survred: DS.attr('number'),
-    survscore: DS.attr('number'),
+    batch_id: DS.attr('number'),
+    batch_name: DS.attr('string'),
+    qc_count_green: DS.attr('number'),
+    qc_count_yellow: DS.attr('number'),
+    qc_count_red: DS.attr('number'),
+    qc_score: DS.attr('number'),
+    survey_count_green: DS.attr('number'),
+    survey_count_yellow: DS.attr('number'),
+    survey_count_red: DS.attr('number'),
+    survey_score: DS.attr('number'),
     trainer: DS.attr('string'),
-    associates: DS.attr(),//
+    associate_ids: DS.attr(),//
     location: DS.attr('string'),
     skilltype: DS.attr('string'),
-    enddate: DS.attr('date'),
+    end_date: DS.attr('date'),
     weeks: DS.attr('number'),
-    currweek: DS.attr('number'),
-    categoryname: DS.attr('string'),
-    reporttime: DS.attr('date')
+    current_week: DS.attr('number'),
+    category_name: DS.attr('string'),
+    report_time: DS.attr('date')
 });

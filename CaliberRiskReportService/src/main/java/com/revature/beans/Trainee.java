@@ -1,79 +1,55 @@
 package com.revature.beans;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value = "trainee")
 @JsonIgnoreProperties(ignoreUnknown=true)
-@Entity
-@Table(name="Caliber_Trainee")
 public class Trainee {
 	
-	@Id
-	@Column(name="trainee_id")
-	private Integer traineeId;
+	private UUID traineeId;
 	
-	@Column(name="trainee_email")
 	private String traineeEmail;
 	
-	@Column(name="trainee_name")
 	private String traineeName;
 	
-	@Column(name="training_status")
 	private String trainingStatus;
 	
-	@Column(name="batch_id")
-	private Integer batchId;
+	private int batchId;
 	
-	@Column(name="phone_number")
 	private String phoneNumber;
 	
-	@Column(name="profile_url")
 	private String profileUrl;
 	
-	@Column(name="skype_id")
 	private String skypeId;
 	
-	@Column(name="Resource_id")
 	private String resourceId;
 	
-	@Column(name="recruiter_name")
 	private String recruiterName;
 	
-	@Column(name="college")
 	private String college;
 	
-	@Column(name="degree")
 	private String degree;
 	
-	@Column(name="major")
 	private String major;
 	
-	@Column(name="tech_screener_name")
 	private String techScreenerName;
 	
-	@Column(name="revpro_project_completion")
-	private Integer revproProjectCompletion;
+	private boolean revproProjectCompletion;
 	
-	@Column(name="flag_notes")
 	private String flagNotes;
 	
-	@Column(name="flag_status")
-	private String flagStatus;
+	private boolean flagStatus;
 	
-	@Column(name="tech_screen_score")
-	private Integer techScreenScore;
+	private int techScreenScore;
 
-	public Integer getTraineeId() {
+	public UUID getTraineeId() {
 		return traineeId;
 	}
 
-	public void setTraineeId(Integer traineeId) {
+	public void setTraineeId(UUID traineeId) {
 		this.traineeId = traineeId;
 	}
 
@@ -181,11 +157,11 @@ public class Trainee {
 		this.techScreenerName = techScreenerName;
 	}
 
-	public Integer isRevproProjectCompletion() {
+	public boolean isRevproProjectCompletion() {
 		return revproProjectCompletion;
 	}
 
-	public void setRevproProjectCompletion(Integer revproProjectCompletion) {
+	public void setRevproProjectCompletion(boolean revproProjectCompletion) {
 		this.revproProjectCompletion = revproProjectCompletion;
 	}
 
@@ -197,11 +173,11 @@ public class Trainee {
 		this.flagNotes = flagNotes;
 	}
 
-	public String getFlagStatus() {
+	public boolean isFlagStatus() {
 		return flagStatus;
 	}
 
-	public void setFlagStatus(String flagStatus) {
+	public void setFlagStatus(boolean flagStatus) {
 		this.flagStatus = flagStatus;
 	}
 

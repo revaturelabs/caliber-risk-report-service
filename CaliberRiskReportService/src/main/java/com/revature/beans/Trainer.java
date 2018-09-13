@@ -1,41 +1,29 @@
 package com.revature.beans;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonRootName;
 
 @JsonRootName(value="trainer")
-@Entity
-@Table(name="Caliber_trainer")
 public class Trainer {
 	
-	@Id
-	@Column(name="trainer_id")
-	private Integer trainerId;
+	private UUID trainerId;
 	
-	@Column(name="email")
 	private String email;
 	
-	@Column(name="name")
 	private String name;
 	
-	@Column(name="tier")
 	private String tier;
 	
-	@Column(name="title")
 	private String title;
 	
-	@Column(name="trainer_password")
 	private String password;
 
-	public Integer getTrainerId() {
+	public UUID getTrainerId() {
 		return trainerId;
 	}
 
-	public void setTrainerId(Integer trainerId) {
+	public void setTrainerId(UUID trainerId) {
 		this.trainerId = trainerId;
 	}
 

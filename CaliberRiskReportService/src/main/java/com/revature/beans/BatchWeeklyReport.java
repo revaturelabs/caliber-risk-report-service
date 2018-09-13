@@ -1,7 +1,8 @@
 package com.revature.beans;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
+import java.util.UUID;
 
 import org.springframework.data.cassandra.core.cql.Ordering;
 import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
@@ -15,8 +16,8 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 @Table
 public class BatchWeeklyReport {
 
-	@PrimaryKeyColumn(name = "batch_id", ordinal = 0, type = PrimaryKeyType.PARTITIONED)
-	private Integer idnum;
+	@PrimaryKeyColumn(name = "batch_id", type = PrimaryKeyType.PARTITIONED)
+	private UUID idnum;
 
 	@Column("batch_name")
 	private String batchName;
@@ -49,7 +50,7 @@ public class BatchWeeklyReport {
 	private String trainer;
 
 	@Column("associate_ids")
-	private Set<Integer> associates;
+	private List<UUID> associates;
 
 	@Column("location")
 	private String location;
@@ -66,17 +67,17 @@ public class BatchWeeklyReport {
 	@Column("current_week")
 	private int currweek;
 
-	@PrimaryKeyColumn(name="category_name", type= PrimaryKeyType.CLUSTERED, ordinal = 2)
+	@Column("category_name")
 	private String categoryname;
 
-	@PrimaryKeyColumn(name = "report_time", type = PrimaryKeyType.CLUSTERED, ordinal = 1, ordering = Ordering.DESCENDING)
+	@PrimaryKeyColumn(name = "report_time", type = PrimaryKeyType.CLUSTERED, ordering = Ordering.DESCENDING)
 	private Date reporttime;
 
-	public Integer getIdnum() {
+	public UUID getIdnum() {
 		return idnum;
 	}
 
-	public void setIdnum(Integer idnum) {
+	public void setIdnum(UUID idnum) {
 		this.idnum = idnum;
 	}
 
@@ -160,11 +161,11 @@ public class BatchWeeklyReport {
 		this.trainer = trainer;
 	}
 
-	public Set<Integer> getAssociates() {
+	public List<UUID> getAssociates() {
 		return associates;
 	}
 
-	public void setAssociates(Set<Integer> associates) {
+	public void setAssociates(List<UUID> associates) {
 		this.associates = associates;
 	}
 
@@ -233,8 +234,5 @@ public class BatchWeeklyReport {
 				+ enddate + ", weeks=" + weeks + ", currweek=" + currweek + ", categoryname=" + categoryname
 				+ ", reporttime=" + reporttime + "]";
 	}
-	
-	public boolean isRed() {
-		return qcscore <= 40;
-	}
+
 }
