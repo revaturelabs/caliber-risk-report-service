@@ -1,3 +1,11 @@
+/**
+* This is a description of the associate weekly report adapter
+*
+* @adapter
+* @return {object} Returns the batch weekly report from the batch weekly report backend
+* controller as a list of objects.
+*/
+
 import ApplicationAdapter from './application';
 
 export default ApplicationAdapter.extend({
