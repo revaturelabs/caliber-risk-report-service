@@ -50,6 +50,11 @@ define('ember-project3/tests/app.lint-test', [], function () {
     assert.ok(true, 'models/batchweeklyreport.js should pass ESLint\n\n');
   });
 
+  QUnit.test('models/redreport.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'models/redreport.js should pass ESLint\n\n');
+  });
+
   QUnit.test('resolver.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'resolver.js should pass ESLint\n\n');
@@ -65,14 +70,24 @@ define('ember-project3/tests/app.lint-test', [], function () {
     assert.ok(false, 'routes/application.js should pass ESLint\n\n37:13 - Unexpected console statement. (no-console)');
   });
 
+  QUnit.test('routes/associaterecent.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/associaterecent.js should pass ESLint\n\n');
+  });
+
   QUnit.test('routes/associateweekly.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'routes/associateweekly.js should pass ESLint\n\n');
   });
 
+  QUnit.test('routes/batchrecent.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'routes/batchrecent.js should pass ESLint\n\n');
+  });
+
   QUnit.test('routes/batchweekly.js', function (assert) {
     assert.expect(1);
-    assert.ok(true, 'routes/batchweekly.js should pass ESLint\n\n');
+    assert.ok(false, 'routes/batchweekly.js should pass ESLint\n\n14:9 - Unexpected console statement. (no-console)\n15:9 - Unexpected console statement. (no-console)\n16:16 - \'RSVP\' is not defined. (no-undef)');
   });
 
   QUnit.test('routes/index.js', function (assert) {
@@ -214,6 +229,21 @@ define('ember-project3/tests/tests.lint-test', [], function () {
     assert.ok(true, 'test-helper.js should pass ESLint\n\n');
   });
 
+  QUnit.test('unit/models/redreport-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/models/redreport-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/routes/associaterecent-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/associaterecent-test.js should pass ESLint\n\n');
+  });
+
+  QUnit.test('unit/routes/batchrecent-test.js', function (assert) {
+    assert.expect(1);
+    assert.ok(true, 'unit/routes/batchrecent-test.js should pass ESLint\n\n');
+  });
+
   QUnit.test('unit/routes/index-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/index-test.js should pass ESLint\n\n');
@@ -222,6 +252,44 @@ define('ember-project3/tests/tests.lint-test', [], function () {
   QUnit.test('unit/routes/main-page-test.js', function (assert) {
     assert.expect(1);
     assert.ok(true, 'unit/routes/main-page-test.js should pass ESLint\n\n');
+  });
+});
+define('ember-project3/tests/unit/models/redreport-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Model | redreport', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    // Replace this with your real tests.
+    (0, _qunit.test)('it exists', function (assert) {
+      let store = this.owner.lookup('service:store');
+      let model = store.createRecord('redreport', {});
+      assert.ok(model);
+    });
+  });
+});
+define('ember-project3/tests/unit/routes/associaterecent-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Route | associaterecent', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:associaterecent');
+      assert.ok(route);
+    });
+  });
+});
+define('ember-project3/tests/unit/routes/batchrecent-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {
+  'use strict';
+
+  (0, _qunit.module)('Unit | Route | batchrecent', function (hooks) {
+    (0, _emberQunit.setupTest)(hooks);
+
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:batchrecent');
+      assert.ok(route);
+    });
   });
 });
 define('ember-project3/tests/unit/routes/index-test', ['qunit', 'ember-qunit'], function (_qunit, _emberQunit) {

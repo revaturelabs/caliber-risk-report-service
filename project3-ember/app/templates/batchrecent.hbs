@@ -1,0 +1,19 @@
+<p>These are the recent batch weekly reports.</p>
+
+<input type="hidden" id="latestMonth" value="" />
+
+{{#each model as |report|}}
+<div>
+    {{!--#if report.reporttime}}
+        <br>
+
+    {{/if--}}
+    <div>{{report.batchName}}</div>
+    <div>{{report.idnum}}</div>
+    <div>{{report.reporttime}}</div>
+    {{#link-to "batchweekly" report.idnum (query-params categoryname=report.categoryname batchName=report.batchName) tagName='button'}}View Report{{/link-to}}
+    <br><br>
+</div>
+{{/each}}
+
+<p>End weekly reports.</p>

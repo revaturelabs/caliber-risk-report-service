@@ -1,0 +1,19 @@
+<p>These are the associate's weekly reports.</p>
+
+<input type="hidden" id="latestMonth" value="" />
+
+{{#each model as |report|}}
+<div>
+    {{!--#if report.reporttime}}
+        <br>
+
+    {{/if--}}
+    <div>{{report.name}}</div>
+    <div>{{report.assId}}</div>
+    <div>{{report.reporttime}}</div>
+    {{#link-to "associateweekly" report.assId (query-params categoryname=report.categoryname reporttime=report.reporttime) tagName='button'}}View Report{{/link-to}}
+    <br><br>
+</div>
+{{/each}}
+
+<p>End weekly reports.</p>

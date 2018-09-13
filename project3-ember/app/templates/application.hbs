@@ -1,2 +1,11 @@
 {{nav-bar}}
+
+<button {{action "makeTest" 1234}}>make test report</button>
+
+{{#link-to "batchweekly" 1234 tagName='button'}}View Weekly Batch Report{{/link-to}}
+
+{{#link-to "associateweekly" 1 tagName='button'}}View Weekly Associate Report{{/link-to}}
+
+{{#link-to "batchrecent" tagName='button'}}List of Weekly Batch Reports by Recency{{/link-to}}
+
 {{outlet}}

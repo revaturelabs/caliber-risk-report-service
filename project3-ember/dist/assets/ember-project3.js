@@ -309,6 +309,18 @@
         reporttime: _emberData.default.attr('date')
     });
 });
+;define('ember-project3/models/redreport', ['exports', 'ember-data'], function (exports, _emberData) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.default = _emberData.default.Model.extend({
+        associates: _emberData.default.attr(), //
+        batches: _emberData.default.attr(), //
+        time: _emberData.default.attr('date')
+    });
+});
 ;define('ember-project3/resolver', ['exports', 'ember-resolver'], function (exports, _emberResolver) {
   'use strict';
 
@@ -334,6 +346,8 @@
     this.route('batchweekly', { path: '/reports/:idnum' });
     this.route('associateweekly', { path: '/associates/:assId' });
     this.route('main-page');
+    this.route('batchrecent', { path: '/batchrecent' });
+    this.route('associaterecent', { path: '/associaterecent' });
   });
 
   exports.default = Router;
@@ -383,6 +397,14 @@
         }
     });
 });
+;define('ember-project3/routes/associaterecent', ['exports'], function (exports) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.Route.extend({});
+});
 ;define('ember-project3/routes/associateweekly', ['exports'], function (exports) {
     'use strict';
 
@@ -399,6 +421,20 @@
         }
     });
 });
+;define('ember-project3/routes/batchrecent', ['exports'], function (exports) {
+    'use strict';
+
+    Object.defineProperty(exports, "__esModule", {
+        value: true
+    });
+    exports.default = Ember.Route.extend({
+        model() {
+            //this.get('store').unloadAll('batchweeklyreport')
+            //console.log(new Date())
+            return this.get('store').peekAll('batchweeklyreport').sortBy('reporttime').reverse();
+        }
+    });
+});
 ;define('ember-project3/routes/batchweekly', ['exports'], function (exports) {
     'use strict';
 
@@ -406,11 +442,22 @@
         value: true
     });
     exports.default = Ember.Route.extend({
+        queryParams: {
+            categoryname: {
+                refreshModel: true
+            },
+            batchName: {
+                refreshModel: true
+            }
+        },
+
         model(params) {
-            return this.get('store').findAll('batchweeklyreport', {
-                filter: {
-                    idnum: params.idnum
-                }
+            console.log(params.reporttime);
+            console.log(params.idnum);
+            return RSVP.hash({
+                theReport: this.get('store').peekAll('batchweeklyreport').filterBy('batchName', params.batchName).filterBy('categoryname', params.categoryname),
+                associates: this.get('store').peekAll('associateweeklyreport').filterBy('week', 1).sortBy('name')
+                //associates needs to be filtered to match the idnum of params.idnum
             });
         }
     });
@@ -488,7 +535,15 @@
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "u/1lhS6Q", "block": "{\"symbols\":[],\"statements\":[[1,[21,\"nav-bar\"],false],[0,\"\\n\"],[1,[21,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/application.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "W/wlZYjY", "block": "{\"symbols\":[],\"statements\":[[1,[21,\"nav-bar\"],false],[0,\"\\n\\n\"],[7,\"button\"],[3,\"action\",[[22,0,[]],\"makeTest\",1234]],[9],[0,\"make test report\"],[10],[0,\"\\n\\n\"],[4,\"link-to\",[\"batchweekly\",1234],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\"View Weekly Batch Report\"]],\"parameters\":[]},null],[0,\"\\n\\n\"],[4,\"link-to\",[\"associateweekly\",1],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\"View Weekly Associate Report\"]],\"parameters\":[]},null],[0,\"\\n\\n\"],[4,\"link-to\",[\"batchrecent\"],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\"List of Weekly Batch Reports by Recency\"]],\"parameters\":[]},null],[0,\"\\n\\n\"],[1,[21,\"outlet\"],false]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/application.hbs" } });
+});
+;define("ember-project3/templates/associaterecent", ["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.HTMLBars.template({ "id": "ny8ixrBJ", "block": "{\"symbols\":[\"report\"],\"statements\":[[7,\"p\"],[9],[0,\"These are the associate's weekly reports.\"],[10],[0,\"\\n\\n\"],[7,\"input\"],[11,\"id\",\"latestMonth\"],[11,\"value\",\"\"],[11,\"type\",\"hidden\"],[9],[10],[0,\"\\n\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[7,\"div\"],[9],[0,\"\\n\"],[0,\"    \"],[7,\"div\"],[9],[1,[22,1,[\"name\"]],false],[10],[0,\"\\n    \"],[7,\"div\"],[9],[1,[22,1,[\"assId\"]],false],[10],[0,\"\\n    \"],[7,\"div\"],[9],[1,[22,1,[\"reporttime\"]],false],[10],[0,\"\\n    \"],[4,\"link-to\",[\"associateweekly\",[22,1,[\"assId\"]],[27,\"query-params\",null,[[\"categoryname\",\"reporttime\"],[[22,1,[\"categoryname\"]],[22,1,[\"reporttime\"]]]]]],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\"View Report\"]],\"parameters\":[]},null],[0,\"\\n    \"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"\\n\"],[7,\"p\"],[9],[0,\"End weekly reports.\"],[10]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/associaterecent.hbs" } });
 });
 ;define("ember-project3/templates/associateweekly", ["exports"], function (exports) {
   "use strict";
@@ -496,7 +551,15 @@
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "Smu6lKkB", "block": "{\"symbols\":[\"report\"],\"statements\":[[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[7,\"div\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n        \"],[1,[27,\"associate-report\",null,[[\"varData\"],[[22,1,[]]]]],false],[0,\"\\n    \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"]],\"parameters\":[1]},null]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/associateweekly.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "Ypi8ZUC5", "block": "{\"symbols\":[\"report\"],\"statements\":[[7,\"ul\"],[11,\"class\",\"list-group\"],[9],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"    \"],[7,\"li\"],[11,\"class\",\"list-group-item\"],[9],[0,\"\\n        \"],[7,\"div\"],[9],[0,\"\\n            \"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n                \"],[1,[27,\"associate-report\",null,[[\"varData\"],[[22,1,[]]]]],false],[0,\"\\n            \"],[10],[0,\"\\n        \"],[10],[0,\"\\n    \"],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[10],[0,\"\\n\"]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/associateweekly.hbs" } });
+});
+;define("ember-project3/templates/batchrecent", ["exports"], function (exports) {
+  "use strict";
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = Ember.HTMLBars.template({ "id": "C8PPoXcD", "block": "{\"symbols\":[\"report\"],\"statements\":[[7,\"p\"],[9],[0,\"These are the recent batch weekly reports.\"],[10],[0,\"\\n\\n\"],[7,\"input\"],[11,\"id\",\"latestMonth\"],[11,\"value\",\"\"],[11,\"type\",\"hidden\"],[9],[10],[0,\"\\n\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[7,\"div\"],[9],[0,\"\\n\"],[0,\"    \"],[7,\"div\"],[9],[1,[22,1,[\"batchName\"]],false],[10],[0,\"\\n    \"],[7,\"div\"],[9],[1,[22,1,[\"idnum\"]],false],[10],[0,\"\\n    \"],[7,\"div\"],[9],[1,[22,1,[\"reporttime\"]],false],[10],[0,\"\\n    \"],[4,\"link-to\",[\"batchweekly\",[22,1,[\"idnum\"]],[27,\"query-params\",null,[[\"categoryname\",\"batchName\"],[[22,1,[\"categoryname\"]],[22,1,[\"batchName\"]]]]]],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\"View Report\"]],\"parameters\":[]},null],[0,\"\\n    \"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"\\n\"],[7,\"p\"],[9],[0,\"End weekly reports.\"],[10]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/batchrecent.hbs" } });
 });
 ;define("ember-project3/templates/batchweekly", ["exports"], function (exports) {
   "use strict";
@@ -504,7 +567,7 @@
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "Ks7BQZo4", "block": "{\"symbols\":[\"report\"],\"statements\":[[7,\"ul\"],[11,\"class\",\"list-group\"],[9],[0,\"\\n\"],[4,\"each\",[[23,[\"model\"]]],null,{\"statements\":[[0,\"    \"],[7,\"li\"],[11,\"class\",\"list-group-item1\"],[9],[0,\"\\n        \"],[7,\"div\"],[9],[0,\"\\n            \"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n                \"],[1,[27,\"pie-chart\",null,[[\"varData\"],[[22,1,[]]]]],false],[0,\"\\n            \"],[10],[0,\"\\n        \"],[10],[0,\"\\n    \"],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[10]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/batchweekly.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "Qhwc3G2T", "block": "{\"symbols\":[\"report\",\"associate\"],\"statements\":[[7,\"p\"],[9],[0,\"This is the weekly batch report.\"],[10],[0,\"\\n\\n\"],[4,\"each\",[[23,[\"model\",\"theReport\"]]],null,{\"statements\":[[7,\"div\"],[9],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n        \"],[1,[27,\"pie-chart\",null,[[\"varData\"],[[22,1,[]]]]],false],[0,\"\\n    \"],[10],[0,\"\\n    \"],[7,\"div\"],[11,\"class\",\"container\"],[9],[0,\"\\n        \"],[7,\"center\"],[9],[0,\"\\n            \"],[7,\"br\"],[9],[10],[0,\"\\n            \"],[7,\"h1\"],[9],[0,\"Associates:\"],[10],[0,\"\\n            \"],[7,\"br\"],[9],[10],[0,\"\\n            \"],[7,\"div\"],[11,\"class\",\"row\"],[9],[0,\"\\n                \"],[7,\"div\"],[11,\"class\",\"col\"],[9],[0,\"\\n                    \\n\"],[4,\"each\",[[23,[\"model\",\"associates\"]]],null,{\"statements\":[[0,\"                        \"],[7,\"h4\"],[9],[0,\"\\n                            \"],[7,\"div\"],[9],[7,\"b\"],[9],[1,[22,2,[\"name\"]],false],[10],[10],[0,\"\\n                            \"],[7,\"div\"],[9],[0,\"ID: \"],[1,[22,2,[\"assId\"]],false],[10],[0,\"\\n                        \"],[10],[0,\"\\n                        \"],[4,\"link-to\",[\"associateweekly\",[22,2,[\"assId\"]]],[[\"tagName\"],[\"button\"]],{\"statements\":[[0,\"View Reports\"]],\"parameters\":[]},null],[0,\"\\n                        \"],[7,\"br\"],[9],[10],[7,\"br\"],[9],[10],[0,\"\\n\"]],\"parameters\":[2]},null],[0,\"                    \\n                \"],[10],[0,\"\\n            \"],[10],[0,\"\\n        \"],[10],[0,\"\\n    \"],[10],[0,\"\\n\"],[10],[0,\"\\n\"]],\"parameters\":[1]},null],[0,\"\\n\"],[7,\"p\"],[9],[0,\"End batch report.\"],[10],[0,\"\\n    \"]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/batchweekly.hbs" } });
 });
 ;define("ember-project3/templates/components/associate-report", ["exports"], function (exports) {
   "use strict";
@@ -520,7 +583,7 @@
   Object.defineProperty(exports, "__esModule", {
     value: true
   });
-  exports.default = Ember.HTMLBars.template({ "id": "ZvyvjmUb", "block": "{\"symbols\":[],\"statements\":[[7,\"nav\"],[11,\"class\",\"navbar navbar-expand-lg navbar-dark bg-primary\"],[9],[0,\"\\n  \"],[7,\"button\"],[11,\"class\",\"navbar-toggler\"],[11,\"data-toggle\",\"collapse\"],[11,\"data-target\",\"#navbarTogglerDemo01\"],[11,\"aria-controls\",\"navbarTogglerDemo01\"],[11,\"aria-expanded\",\"false\"],[11,\"aria-label\",\"Toggle navigation\"],[11,\"type\",\"button\"],[9],[0,\"\\n    \"],[7,\"span\"],[11,\"class\",\"navbar-toggler-icon\"],[9],[10],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"collapse navbar-collapse\"],[11,\"id\",\"navbarTogglerDemo01\"],[9],[0,\"\\n\"],[4,\"link-to\",[\"main-page\"],null,{\"statements\":[[0,\"    \"],[7,\"a\"],[11,\"class\",\"navbar-brand\"],[11,\"href\",\"#\"],[9],[0,\"Revature\"],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"    \"],[7,\"ul\"],[11,\"class\",\"navbar-nav mr-auto mt-2 mt-lg-0\"],[9],[0,\"\\n      \"],[7,\"li\"],[11,\"class\",\"nav-item active\"],[9],[0,\"\\n\"],[4,\"link-to\",[\"batchweekly\",1],null,{\"statements\":[[0,\"        \"],[7,\"a\"],[11,\"class\",\"nav-link\"],[11,\"href\",\"#\"],[9],[0,\"Batches\"],[7,\"span\"],[11,\"class\",\"sr-only\"],[9],[0,\"(current)\"],[10],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"      \"],[10],[0,\"\\n      \"],[7,\"li\"],[11,\"class\",\"nav-item\"],[9],[0,\"\\n\"],[4,\"link-to\",[\"associateweekly\",1],null,{\"statements\":[[0,\"        \"],[7,\"a\"],[11,\"class\",\"nav-link\"],[11,\"href\",\"#\"],[9],[0,\"Associates\"],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"      \"],[10],[0,\"\\n      \"],[7,\"li\"],[11,\"class\",\"nav-item\"],[9],[0,\"\\n\"],[4,\"link-to\",[\"main-page\"],null,{\"statements\":[[0,\"        \"],[7,\"button\"],[11,\"class\",\"btn btn-danger\"],[11,\"type\",\"submit\"],[9],[0,\"Red\"],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"      \"],[10],[0,\"\\n      \"],[7,\"li\"],[11,\"class\",\"nav-item\"],[9],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"dropdown\"],[9],[0,\"\\n          \"],[7,\"button\"],[11,\"class\",\"btn btn-secondary dropdown-toggle\"],[11,\"id\",\"dropdownMenuButton\"],[11,\"data-toggle\",\"dropdown\"],[11,\"aria-haspopup\",\"true\"],[11,\"aria-expanded\",\"false\"],[11,\"type\",\"button\"],[9],[0,\"\\n            Years\\n          \"],[10],[0,\"\\n          \"],[7,\"div\"],[11,\"class\",\"dropdown-menu\"],[11,\"aria-labelledby\",\"dropdownMenuButton\"],[9],[0,\"\\n            \"],[7,\"a\"],[11,\"class\",\"dropdown-item\"],[11,\"href\",\"#\"],[9],[0,\"2018\"],[10],[0,\"\\n            \"],[7,\"a\"],[11,\"class\",\"dropdown-item\"],[11,\"href\",\"#\"],[9],[0,\"2017\"],[10],[0,\"\\n          \"],[10],[0,\"\\n        \"],[10],[0,\"\\n      \"],[10],[0,\"\\n    \"],[10],[0,\"\\n    \"],[7,\"form\"],[11,\"class\",\"form-inline my-2 my-lg-0\"],[9],[0,\"\\n      \"],[7,\"input\"],[11,\"class\",\"form-control mr-sm-2\"],[11,\"placeholder\",\"Search\"],[11,\"aria-label\",\"Search\"],[11,\"type\",\"search\"],[9],[10],[0,\"\\n      \"],[7,\"button\"],[11,\"class\",\"btn btn-outline-success my-2 my-sm-0\"],[11,\"type\",\"submit\"],[9],[0,\"Search\"],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/components/nav-bar.hbs" } });
+  exports.default = Ember.HTMLBars.template({ "id": "ChUA2kaf", "block": "{\"symbols\":[],\"statements\":[[7,\"nav\"],[11,\"class\",\"navbar navbar-expand-lg navbar-dark bg-primary\"],[9],[0,\"\\n  \"],[7,\"button\"],[11,\"class\",\"navbar-toggler\"],[11,\"data-toggle\",\"collapse\"],[11,\"data-target\",\"#navbarTogglerDemo01\"],[11,\"aria-controls\",\"navbarTogglerDemo01\"],[11,\"aria-expanded\",\"false\"],[11,\"aria-label\",\"Toggle navigation\"],[11,\"type\",\"button\"],[9],[0,\"\\n    \"],[7,\"span\"],[11,\"class\",\"navbar-toggler-icon\"],[9],[10],[0,\"\\n  \"],[10],[0,\"\\n  \"],[7,\"div\"],[11,\"class\",\"collapse navbar-collapse\"],[11,\"id\",\"navbarTogglerDemo01\"],[9],[0,\"\\n\\n    \"],[7,\"a\"],[11,\"class\",\"navbar-brand\"],[11,\"href\",\"#\"],[9],[0,\"Revature\"],[10],[0,\"\\n\\n    \"],[7,\"ul\"],[11,\"class\",\"navbar-nav mr-auto mt-2 mt-lg-0\"],[9],[0,\"\\n      \"],[7,\"li\"],[11,\"class\",\"nav-item active\"],[9],[0,\"\\n\"],[4,\"link-to\",[\"batchweekly\",1],null,{\"statements\":[[0,\"        \"],[7,\"a\"],[11,\"class\",\"nav-link\"],[11,\"href\",\"#\"],[9],[0,\"Batches\"],[7,\"span\"],[11,\"class\",\"sr-only\"],[9],[0,\"(current)\"],[10],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"      \"],[10],[0,\"\\n      \"],[7,\"li\"],[11,\"class\",\"nav-item\"],[9],[0,\"\\n\"],[4,\"link-to\",[\"associateweekly\",1],null,{\"statements\":[[0,\"        \"],[7,\"a\"],[11,\"class\",\"nav-link\"],[11,\"href\",\"#\"],[9],[0,\"Associates\"],[10],[0,\"\\n\"]],\"parameters\":[]},null],[0,\"      \"],[10],[0,\"\\n      \"],[7,\"li\"],[11,\"class\",\"nav-item\"],[9],[0,\"\\n        \"],[7,\"button\"],[11,\"class\",\"btn btn-danger\"],[11,\"type\",\"submit\"],[9],[0,\"Red\"],[10],[0,\"\\n      \"],[10],[0,\"\\n      \"],[7,\"li\"],[11,\"class\",\"nav-item\"],[9],[0,\"\\n        \"],[7,\"div\"],[11,\"class\",\"dropdown\"],[9],[0,\"\\n          \"],[7,\"button\"],[11,\"class\",\"btn btn-secondary dropdown-toggle\"],[11,\"id\",\"dropdownMenuButton\"],[11,\"data-toggle\",\"dropdown\"],[11,\"aria-haspopup\",\"true\"],[11,\"aria-expanded\",\"false\"],[11,\"type\",\"button\"],[9],[0,\"\\n            Years\\n          \"],[10],[0,\"\\n          \"],[7,\"div\"],[11,\"class\",\"dropdown-menu\"],[11,\"aria-labelledby\",\"dropdownMenuButton\"],[9],[0,\"\\n            \"],[7,\"a\"],[11,\"class\",\"dropdown-item\"],[11,\"href\",\"#\"],[9],[0,\"2018\"],[10],[0,\"\\n            \"],[7,\"a\"],[11,\"class\",\"dropdown-item\"],[11,\"href\",\"#\"],[9],[0,\"2017\"],[10],[0,\"\\n          \"],[10],[0,\"\\n        \"],[10],[0,\"\\n      \"],[10],[0,\"\\n    \"],[10],[0,\"\\n    \"],[7,\"form\"],[11,\"class\",\"form-inline my-2 my-lg-0\"],[9],[0,\"\\n      \"],[7,\"input\"],[11,\"class\",\"form-control mr-sm-2\"],[11,\"placeholder\",\"Search\"],[11,\"aria-label\",\"Search\"],[11,\"type\",\"search\"],[9],[10],[0,\"\\n      \"],[7,\"button\"],[11,\"class\",\"btn btn-outline-success my-2 my-sm-0\"],[11,\"type\",\"submit\"],[9],[0,\"Search\"],[10],[0,\"\\n    \"],[10],[0,\"\\n  \"],[10],[0,\"\\n\"],[10]],\"hasEval\":false}", "meta": { "moduleName": "ember-project3/templates/components/nav-bar.hbs" } });
 });
 ;define("ember-project3/templates/components/pie-chart", ["exports"], function (exports) {
   "use strict";
@@ -569,7 +632,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("ember-project3/app")["default"].create({"name":"ember-project3","version":"0.0.0+a93b4191"});
+            require("ember-project3/app")["default"].create({"name":"ember-project3","version":"0.0.0+589c7fed"});
           }
         
 //# sourceMappingURL=ember-project3.map
