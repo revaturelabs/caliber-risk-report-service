@@ -1,0 +1,49 @@
+/**
+*This component is a navigation tool used to navigate to the templates that will display the reports for
+*for both associates and batches
+*@Authors Vincent, Dominic
+*/
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+    {{#link-to "main-page"}}
+    <a class="navbar-brand" href="#">Revature</a>
+    {{/link-to}}
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li class="nav-item active">
+        {{#link-to "batchweekly" 1}}
+        <a class="nav-link" href="#">Batches<span class="sr-only">(current)</span></a>
+        {{/link-to}}
+      </li>
+      <li class="nav-item">
+        {{#link-to "associateweekly" 1}}
+        <a class="nav-link" href="#">Associates</a>
+        {{/link-to}}
+      </li>
+      <li class="nav-item">
+        {{#link-to "main-page"}}
+        <button class="btn btn-danger" type="submit">Red</button>
+        {{/link-to}}
+      </li>
+      <li class="nav-item">
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Years
+          </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" href="#">2018</a>
+            <a class="dropdown-item" href="#">2017</a>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
