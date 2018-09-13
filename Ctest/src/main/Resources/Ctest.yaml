@@ -1,0 +1,9 @@
+name: caliberKeyspace
+columnFamilies:
+- name: spellsColumnFamilyName
+  rows: 
+  -key: 10
+  columns: 
+  - {name: spelltype, value: ground  }
+  - {name: spellname, value: Quake }
+  
