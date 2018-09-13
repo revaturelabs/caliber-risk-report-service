@@ -9,7 +9,7 @@ export default DS.RESTSerializer.extend({
             el['id'] = index;
             result.push(el);
         });
-        payload = {'associateweeklyreport': payload };
+        payload = {'redbwr': payload };
         console.log(payload);
         return this._super(store, primaryModelClass, payload, id, requestType);
 

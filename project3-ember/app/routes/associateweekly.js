@@ -2,10 +2,7 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
     model(params) {
-        return (this.get('store').findAll('associateweeklyreport', {
-            filter: {
-                assId: params.assId
-            }
-        }))
+        //this.get('store').unloadAll('associateweeklyreport')
+        return this.get('store').peekAll('associateweeklyreport').filterBy('assId', parseInt(params.assId)).sortBy('week')
     }
 });
